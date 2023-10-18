@@ -19,6 +19,7 @@ import Batterypage from './InsidePages/Batterypage';
 import Coveragepage from './InsidePages/Coveragepage';
 import Backed_Page from './InsidePages/Backed_Page';
 import Wifi_Password from './InsidePages/Wifi_Password';
+import HeadphoneSafety from './InsidePages/HeadphoneSafety';
 
 
 
@@ -53,6 +54,9 @@ function App() {
     <Route path='/Coveragepage' Component={Coveragepage}></Route>
     <Route path='/Backed_page' Component={Backed_Page}></Route>
     <Route path='/Wifi_Password' Component={Wifi_Password}></Route>
+    <Route path='/HeadphoneSafety' Component={HeadphoneSafety}></Route>
+    
+
     
     
 

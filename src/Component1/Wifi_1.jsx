@@ -40,7 +40,7 @@ const navigate = useNavigate()
                   
             </div>  
         
-                <hr id="Horizontal_Line_General"></hr>
+                <hr id="Horizontal_Line_General" style={{marginBottom:"10px"}}></hr>
 
 
             <div className='Screen_View_Row'>
