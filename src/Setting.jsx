@@ -129,6 +129,7 @@ function Setting() {
             </div>
 
             <div className="Button_Click"  onClick={()=>navigate('/Wifi_1')} >Wi-Fi</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/WiFi_1')}> Airtel_8965992254_5G</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>

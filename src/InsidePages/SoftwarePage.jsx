@@ -20,8 +20,7 @@ function SoftwarePage() {
   height:"40px",
   borderRadius:"8px"}}>
 
-    <div
-     style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+    <div className='Screen_View_Row'>
      <button style={{fontSize:"17px"  , marginTop:"10px" ,  marginLeft:"15px", width:"320px" , 
      textAlign:"left",color:"white" ,  background:"#2a2929f8" , borderTop:"none" , 
      borderLeft:"none" , borderBottom:"none" , borderRight:"none"}} onClick={()=>navigate('')} >Automatic Updates  </button>
