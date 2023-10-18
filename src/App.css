@@ -1,0 +1,399 @@
+.App {
+  text-align: center;
+}
+
+body{
+  margin-left: 10px;
+  margin-right: 10px;
+  min-height:800px;
+  margin-top: 40px;
+  background-color:black;
+  color: white;
+}
+
+#setting{
+  color: white;
+  font-size: 20px;  
+  height: 40px;
+ margin-top: 0px;
+  
+}
+
+
+/* SearchBox.css */
+.search-bar {
+  background: #2a2929f8;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type="text"] {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 20px;
+  outline: none;
+  color: #f6f1f1;
+}
+
+#button{
+  outline: none;
+  border: none;
+  background-color: white;
+  color: rgb(49, 66, 226);
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 30px;
+  text-align:left;
+  width: 110px;
+  background-color: black;
+  padding: 3px;
+  
+}
+
+#bluetooth_page{
+  color: white;
+}
+
+.blue_tooth{
+  background: #2a2929f8;
+}
+
+.bluetooth_network{
+  background: #2a2929f8;
+}
+
+
+
+.profile_icon{
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#profile{
+  display: flex;
+  flex-direction: row;
+ 
+}
+.Name_profile{
+  font-size: 23px;
+  color: #fffafa;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#block_3{
+  background: #2a2929f8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#Airplane_mode{
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #fffafa;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  ;
+}
+
+/* #set_content{
+  border-bottom: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  
+} */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 130px;
+  height: 20px;
+  margin-left: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50px;
+  margin-left: 75px;
+
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 27px;
+  width: 28px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+  
+}
+
+input:checked + .slider {
+  background-color: #007BFF;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #007BFF;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+ 
+
+.button_name{
+  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: white;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+
+
+
+/* airplanemode  */
+.Name{
+  font-size: 20px;
+  color: #fffafa;
+  margin-left: 20px;
+ 
+
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#Main_Button{
+  width: 280px;
+  height: 30px;
+  border: none;
+  background: #2a2929f8;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  
+  border-bottom: 1px solid rgb(98, 95, 95);
+  margin-left: 15px; 
+  
+
+}
+
+
+
+
+
+
+
+
+
+/* all blocks css  */
+
+#Blocks{
+  color: white;
+  border-radius: 8px;
+  background: #2a2929f8;
+
+}
+
+
+/* Setting / Home page css */
+
+.Second_Block{
+  height: 130px;
+}
+
+.Third_Block{
+ height: 215px;
+}
+
+.Fourth_Block{
+  height: 135px;
+ }
+
+ .Fifth_Block{
+  height: 90px;
+ }
+
+.Profile_View{
+  margin-right: 110px;
+  font-size: 23px;
+  margin-top: 10px;
+  padding-left: 0px;
+}
+
+#Horizontal_Line{
+  margin-left: 60px;
+  border-bottom: 0px solid rgb(98, 95, 95);
+  margin-right: 1px;
+  margin-top: 0px;
+}
+
+#Screen_View_Row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+ 
+
+}
+
+#Screen_View_Col{
+  display: flex;
+  flex-direction: row;
+justify-content:space-between;
+height: 73px;
+}
+
+#Image_Align{
+  margin-left: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 30%;
+
+}
+
+.Button_Click{
+  font-size: 17px;
+  width: 320px;
+  margin-left: 20px;
+  text-align: left;
+  color: white;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+
+.Arrow_Icon{
+  margin-right: 15px;
+}
+
+.Info_Small_Text{
+  font-size: 10px;
+  margin-bottom: 2px;
+  margin-top: 3px;
+}
+
+
+/* Genreal page css */
+
+.b1{
+  height: 83px;
+}
+.b2{
+  height:150px;
+}
+.b3{
+  height: 38px;
+}
+.b4{
+  height: 75px;
+}
+.b5{
+  height: 190px;
+}
+
+#Button_General{
+  font-size: 17px;
+  color: white;
+  width: 320px;
+  text-align: left;
+  background-color: #2a2929f8;
+  margin-left: 20px;
+}
+#Horizontal_Line_General{
+  border-bottom: 0px solid rgb(98, 95, 95);
+  margin-left: 18px;
+  margin-right: 1px;
+}
+
+.Arrow_General{
+  margin-right: 15px;
+}
+
+
+
+/* About page css */
+
+.C1{
+height:190px ;
+}
+.C2{
+  height: 40px; 
+}
+
+.C3{
+  height:40px ;
+}
+
+.C4{
+  height:270px;
+}
+
+.C5{
+  height:300px;
+}
+
+.C6{
+  height: 40px;
+}
+
+.Button_About_Page{
+  font-size: 17px;
+  margin-left: 20px;
+  background-color: #2a2929f8;
+  color: white;
+  width: 320px;
+  text-align: left;
+
+}
+
+.About_Arrow{
+  margin-right: 15px;
+  color: gray;
+  font-size: 15px;
+
+}
+
+
+
