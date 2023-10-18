@@ -62,9 +62,7 @@ input[type="text"] {
   background: #2a2929f8;
 }
 
-.bluetooth_network{
-  background: #2a2929f8;
-}
+
 
 
 
@@ -240,7 +238,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  cursor: pointer;
+ cursor: pointer;
 }
 
 
