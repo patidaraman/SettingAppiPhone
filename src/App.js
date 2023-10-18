@@ -18,6 +18,8 @@ import Certificatepage from './InsidePages/Certificatepage';
 import Batterypage from './InsidePages/Batterypage';
 import Coveragepage from './InsidePages/Coveragepage';
 import Backed_Page from './InsidePages/Backed_Page';
+import Wifi_Password from './InsidePages/Wifi_Password';
+
 
 
 
@@ -50,6 +52,7 @@ function App() {
     <Route path='/Batterypage' Component={Batterypage}></Route>
     <Route path='/Coveragepage' Component={Coveragepage}></Route>
     <Route path='/Backed_page' Component={Backed_Page}></Route>
+    <Route path='/Wifi_Password' Component={Wifi_Password}></Route>
     
     
 

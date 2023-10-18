@@ -18,14 +18,14 @@ function AboutPage() {
 
 <div id="Blocks"  className='C1'>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
         <div className="Button_About_Page"  style={{ marginTop:"10px"  }}>Name  </div>
         <span className='About_Arrow' style={{marginTop:"10px"}}>iPhone</span>
    </div>
 
    <hr id="Horizontal_Line_General"/>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
        
         <div  className="Button_About_Page"  >Software Version  </div>
         <span  className='About_Arrow'>15.7.9</span>
@@ -33,7 +33,7 @@ function AboutPage() {
 
    <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
       
         <div className="Button_About_Page"  >Model Name  </div>
         <span  className='About_Arrow' >iPhone7 </span>
@@ -41,14 +41,14 @@ function AboutPage() {
 
   <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
       
         <div className="Button_About_Page"  >Model Number   </div>
         <span  className='About_Arrow'>MN8Y2HN/A</span>
   </div>
 
   <hr id="Horizontal_Line_General"/>
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div className="Button_About_Page">Serial Number </div>
         <span className='About_Arrow' >F17SX1A6HG&G</span>
@@ -60,7 +60,7 @@ function AboutPage() {
 
 <div id="Blocks" className='C2' >
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
        
         <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('/Coveragepage')} >Coverage Expired </div>
         <span className='About_Arrow'  style={{ marginTop:"10px"}}>{">"}</span>
@@ -73,7 +73,7 @@ function AboutPage() {
 
   <div id="Blocks"  className='C3' >
 
-    <div id="Screen_View_Row">
+    <div className="Screen_View_Row">
          
           <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('/Batterypage')} >Battery </div>
           <span  className='About_Arrow' style={{ marginTop:"10px"}}>{">"}</span>
@@ -93,7 +93,7 @@ function AboutPage() {
 
   <div id="Blocks" className='C4'>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
        
 
         <div className="Button_About_Page" style={{ marginTop:"5px"  }}  >Network  </div>
@@ -102,7 +102,7 @@ function AboutPage() {
 
    <hr id="Horizontal_Line_General"/>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
        
         <div className="Button_About_Page"  >Songs  </div>
         <span className='About_Arrow'>0</span>
@@ -110,7 +110,7 @@ function AboutPage() {
 
    <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div className="Button_About_Page" >Videos  </div>
         <span className='About_Arrow'>63 </span>
@@ -118,7 +118,7 @@ function AboutPage() {
 
   <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div className="Button_About_Page" > Photos   </div>
         <span className='About_Arrow'>592</span>
@@ -126,13 +126,13 @@ function AboutPage() {
 
   <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div  className="Button_About_Page"  >Applications </div>
         <span  className='About_Arrow'>34</span>
   </div>
   <hr id="Horizontal_Line_General"/>
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div className="Button_About_Page"  >Capacity  </div>
         <span className='About_Arrow' >32GB</span>
@@ -140,7 +140,7 @@ function AboutPage() {
   <hr id="Horizontal_Line_General"/>
  
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div  className="Button_About_Page">Available </div>
         <span className='About_Arrow'>1.61GB</span>
@@ -155,7 +155,7 @@ function AboutPage() {
 
 <div id="Blocks" className='C5'>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
        
         <div className="Button_About_Page" style={{ marginTop:"5px"  }} >Network Provider </div>
         <span  className='About_Arrow' style={{ marginTop:"10px"}}>Idea50.0</span>
@@ -163,7 +163,7 @@ function AboutPage() {
  
    <hr id="Horizontal_Line_General"/>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
        
         <div className="Button_About_Page"> Wi-Fi Address </div>
         <span className='About_Arrow' >40:4D:7F:B3:E6:45</span>
@@ -171,38 +171,38 @@ function AboutPage() {
 
    <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
         <div className="Button_About_Page"  >Bluetooth  </div>
         <span className='About_Arrow'>40:4D:7F:B3:E6:46</span>
   </div>
 
   <hr id="Horizontal_Line_General"/>
 
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div className="Button_About_Page"  >IMEI  </div>
         <span className='About_Arrow' >353778087754524</span>
   </div>
 
   <hr id="Horizontal_Line_General"/>
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
         <div className="Button_About_Page" >ICCID</div>
         <span className='About_Arrow' >89910275115008463588</span>
   </div>
   <hr id="Horizontal_Line_General"/>
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
        
         <div  className="Button_About_Page">Modern Firmware</div>
         <span className='About_Arrow' >6.03.01</span>
   </div>
   <hr id="Horizontal_Line_General"/>
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
         <div  className="Button_About_Page">SEID</div>
         <span  className='About_Arrow' >{">"}</span>
   </div>
 
   <hr id="Horizontal_Line_General"/>
-  <div id="Screen_View_Row">
+  <div className="Screen_View_Row">
         <div className="Button_About_Page">Network Provider Lock </div>
         <span className='About_Arrow'>No_SIM_restricti...</span>
   </div>
@@ -213,7 +213,7 @@ function AboutPage() {
        
   <div id="Blocks" className='C6'>
 
-   <div id="Screen_View_Row">
+   <div className="Screen_View_Row">
 
      <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('/Certificatepage')} >Certificate Trust Settings </div>
      <span  className='About_Arrow' style={{ marginTop:"10px"}}>{">"}</span>

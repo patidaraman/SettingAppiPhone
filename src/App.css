@@ -44,7 +44,7 @@ input[type="text"] {
   border: none;
   background-color: white;
   color: rgb(49, 66, 226);
-  font-size: 20px;
+  font-size: 19px;
   font-family: Arial, Helvetica, sans-serif;
   height: 30px;
   text-align:left;
@@ -86,13 +86,7 @@ input[type="text"] {
   margin-top: 10px;
 }
 
-#block_3{
-  background: #2a2929f8;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+
 
 #Airplane_mode{
   margin-left: 10px;
@@ -116,7 +110,7 @@ input[type="text"] {
   display: inline-block;
   width: 130px;
   height: 20px;
-  margin-left: 25px;
+  margin-left: 30px;
 }
 
 .switch input {
@@ -170,27 +164,13 @@ input:checked + .slider:before {
 
  
 
-.button_name{
-  font-size: 17px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  color: white;
-  margin-left: 10px;
-  margin-top: 8px;
-}
-
-
 
 
 /* airplanemode  */
 .Name{
   font-size: 20px;
   color: #fffafa;
-  margin-left: 20px;
- 
-
- 
+  margin-left: 20px; 
 }
 
 
@@ -204,20 +184,6 @@ input:checked + .slider:before {
 
 
 
-#Main_Button{
-  width: 280px;
-  height: 30px;
-  border: none;
-  background: #2a2929f8;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  
-  border-bottom: 1px solid rgb(98, 95, 95);
-  margin-left: 15px; 
-  
-
-}
 
 
 
@@ -233,6 +199,7 @@ input:checked + .slider:before {
   color: white;
   border-radius: 8px;
   background: #2a2929f8;
+  
 
 }
 
@@ -269,14 +236,15 @@ input:checked + .slider:before {
   margin-top: 0px;
 }
 
-#Screen_View_Row{
+.Screen_View_Row{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
- 
-
 }
+
+
+
 
 #Screen_View_Col{
   display: flex;
@@ -300,8 +268,11 @@ height: 73px;
   text-align: left;
   color: white;
   margin-top: 5px;
-  cursor: pointer;
+  cursor: pointer; 
+  background: #2a2929f8;
 }
+
+
 
 
 .Arrow_Icon{
@@ -397,3 +368,8 @@ height:190px ;
 
 
 
+/* hotspot page */
+.Hotspot_Page_Icon{
+  height: 20px;
+  width: 20px;
+}

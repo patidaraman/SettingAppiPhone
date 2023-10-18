@@ -91,7 +91,7 @@ function Setting() {
           
          
 <hr id="Horizontal_Line" style={{marginTop:"7px"}}></hr>
-<div id="Screen_View_Row">
+<div className="Screen_View_Row">
 <div style={{marginLeft:"20px",marginTop:"5px"}}  onClick={()=>navigate("/Backed_page")}>iPhone Not Backed Up</div>
 <div className='Arrow_Icon'  >  {">"}  </div>
 </div>
@@ -122,7 +122,7 @@ function Setting() {
 
              <hr id="Horizontal_Line" ></hr>
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
 
             <div>
             <img  id="Image_Align" style={{marginLeft:"10px"}} src={wifi}   alt="Wifi Icon" />
@@ -136,7 +136,7 @@ function Setting() {
       
              <hr id="Horizontal_Line" ></hr>
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
 
             <div>
             <img id="Image_Align"  src={bluetooth}   alt="Bluetooth Icon" />
@@ -149,7 +149,7 @@ function Setting() {
 
         <hr  id="Horizontal_Line"></hr>
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
 
             <div>
             <img  id="Image_Align"  src={data} alt="Mobile Data Icon" />
@@ -162,7 +162,7 @@ function Setting() {
 
         <hr  id="Horizontal_Line"></hr>
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
 
             <div>
             <img  id="Image_Align"  src={hotspot}   alt="Hotspot  Icon" />
@@ -184,7 +184,7 @@ function Setting() {
 
     <div className="Fourth_Block" id="Blocks">
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
                 <div>
                 <img  id="Image_Align" style={{marginTop:"10px"}} src={notification}  alt="Notification Icon" />
                 </div>
@@ -196,7 +196,7 @@ function Setting() {
 
 
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
                 <div>
                 <img id="Image_Align"  src={sound}    alt="Hotspot  Icon" />
                 </div>
@@ -209,7 +209,7 @@ function Setting() {
 
 
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
                 <div>
                 <img  id="Image_Align"  src={focus}   alt="Hotspot  Icon" />
                 </div>
@@ -228,7 +228,7 @@ function Setting() {
     <div className="Fifth_Block" id="Blocks">
 
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
 
                  <div>
                      <img id="Image_Align"  style={{marginTop:"10px"}} src={general}  alt="General Icon" />
@@ -242,7 +242,7 @@ function Setting() {
                 <hr id="Horizontal_Line" ></hr>
 
 
-        <div  id="Screen_View_Row">
+        <div  className="Screen_View_Row">
 
              <div>
                 <img id="Image_Align" src={displayB} alt="Display  Icon" />
