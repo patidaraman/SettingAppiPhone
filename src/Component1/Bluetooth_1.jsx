@@ -12,7 +12,7 @@ function Bluetooth_1() {
   return (
     <div>
 
-          <div style={{display:"flex" , flexDirection:"row", marginTop:"35px" , alignItems:"flex-start" ,justifyContent:"flex-start" , gap:"25px" } }>
+          <div style={{display:"flex" , flexDirection:"row" } }>
         <button  id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
         <div style={{color:"white" ,fontSize:"20px"}}>Bluetooth</div>
         </div>
@@ -116,7 +116,7 @@ function Bluetooth_1() {
   <br></br>
 
 <div className='Screen_View_Row'  >
-       <span style={{color:"gray",fontSize:"12px",marginLeft:"15px" }}>To pair an Apple Watch with your iPhone ,
+       <span className='paragraph'>To pair an Apple Watch with your iPhone ,
              go to the<br/><a href=" https://support.apple.com/en-in/HT204784" style={{textDecoration:"none",color:"#007FFF"}}  >Apple Watch app.</a>
        </span>
 </div>

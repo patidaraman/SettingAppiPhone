@@ -17,14 +17,19 @@ const navigate = useNavigate()
   return (
 
 
-    <div>
+  <div>
 
-<div style={{display:"flex" , flexDirection:"row", marginTop:"30px" , alignItems:"flex-start" ,justifyContent:"flex-start" , gap:"50px"} }>
-<button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
-<div style={{color:"white"}}>Wi-Fi</div>
+      <div style={{display:"flex" , flexDirection:"row", gap:"60px"} }>
+      <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+     <span >Wi-Fi</span>
+
 </div>
+
+
          <br/>
          <br/>
+
+
        
          <div  id="Blocks" className='b1'>
 
@@ -110,7 +115,7 @@ const navigate = useNavigate()
 
 </div>
 
-< span style={{color:"gray",fontSize:"12px",marginLeft:"15px" , display:"flex",flexDirection:'column' , marginTop:"5px"}}> Known networks will be joined automatically. If no  <br/>
+< span className='paragraph'> Known networks will be joined automatically. If no  <br/>
 known network are available , you will be notified 
           <br/>of available networks</span>
 
@@ -130,7 +135,7 @@ known network are available , you will be notified
 
 </div>
 
-< span style={{color:"gray",fontSize:"12px",marginLeft:"15px" , display:"flex",flexDirection:'column' , marginTop:"5px"}}> 
+< span className='paragraph'> 
 Allow this device to automatically discover nearby  <br/> personal hotspot when no Wi-Fi network is 
 known network are available , you will be notified 
           <br/>available </span>

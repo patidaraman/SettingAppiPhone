@@ -8,7 +8,7 @@ function Wifi_Password() {
        
 
 
-       <div style={{display:"flex" , flexDirection:"row", marginTop:"35px"  ,justifyContent:"space-evenly" , gap:"25px" } }>
+       <div className='top'>
         <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}>Cancel</button> 
         <div style={{color:"white" ,fontSize:"20px" , marginRight:"10px" , marginTop:"2px"}}>Wi-Fi Password </div>
         <div style={{color: "rgb(49, 66, 226", fontSize:"19px"}} onClick={()=>navigate(-1)}> Done</div>
@@ -20,7 +20,7 @@ function Wifi_Password() {
         
         <span  style={{fontSize:"20px" ,marginLeft:"10px" , marginTop:"8px"}}>Password</span>
         <input  style={{marginTop:"10px" , marginBottom:"10px" , marginRight:"15px" , 
-         background:"#2a2929f8", color:"white" , border:"none"}} type='Number' placeholder='Set Password'></input>
+         background:"#2a2929f8", color:"white" , border:"none"}} type='text' placeholder='Set Password'></input>
 
         <span style={{marginTop:"15px" , marginRight:"15px"}}>╳</span>
 

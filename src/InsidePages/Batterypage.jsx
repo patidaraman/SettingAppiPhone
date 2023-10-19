@@ -8,7 +8,7 @@ function Batterypage() {
 
     
 
-<div style={{display:"flex" , flexDirection:"row", marginTop:"35px" , alignItems:"flex-start" ,justifyContent:"flex-start" , gap:"25px" } }>
+<div className='top'>
 <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ About </button> 
 <div style={{color:"white" ,fontSize:"20px"}}>Battery</div>
 </div>

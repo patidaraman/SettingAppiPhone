@@ -30,7 +30,7 @@ function Sound_1() {
       // 4. change with button slider 
             const [isChangeWithButtonOn , setChangeWithButtontOn ] = useState(false);
             const toggleChangeWithButton =() =>{
-            setChangeWithButtontOn(!isVibrateSilent);};
+            setChangeWithButtontOn(!isChangeWithButtonOn);};
 
 
 
@@ -65,7 +65,7 @@ function Sound_1() {
 
       {/* Sound Page Heading  */}
   
-    <div  style={{display:"flex" } }>
+    <div  style={{display:"flex", flexDirection:"row",  gap:"10px"  } }>
                     
            <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
            <div style={{fontSize:"18px",marginTop:"5px"}}>Sound & Haptics</div>
@@ -176,13 +176,16 @@ function Sound_1() {
 
     </div >
 
-    <span className="Screen_View_Row" 
-    style={{color:"gray",fontSize:"12px",marginLeft:"15px" , marginTop:"10px"}}>
+    <span className="Screen_View_Row" style={{marginTop:"5px"}} >
+      <span className='paragraph' >
       The  volume of the ringer and alerts will  not  be<br/> affected by the volume buttons</span>
+      </span>
+   
+      
 
       <br/>
 
-      <span style={{color:"gray",fontSize:"12px",marginLeft:"15px" }}>SOUND AND VIBRATION PATTERNS</span>
+      <span className='paragraph'>SOUND AND VIBRATION PATTERNS</span>
 
 
 
@@ -320,7 +323,7 @@ function Sound_1() {
 
     
     </div>
-    <span style={{color:"gray",fontSize:"12px",marginLeft:"15px" }}>Play haptics for system controls and interactions.</span>
+    <span className='paragraph' >Play haptics for system controls and interactions.</span>
     
    
     <br/><br/><br/>

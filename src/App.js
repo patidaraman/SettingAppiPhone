@@ -20,6 +20,11 @@ import Coveragepage from './InsidePages/Coveragepage';
 import Backed_Page from './InsidePages/Backed_Page';
 import Wifi_Password from './InsidePages/Wifi_Password';
 import HeadphoneSafety from './InsidePages/HeadphoneSafety';
+import AutoLock from './InsidePages/AutoLock';
+import View_Display from './InsidePages/View_Display';
+import NightShift from './InsidePages/NightShift';
+import TextSize from './InsidePages/TextSize';
+
 
 
 
@@ -55,9 +60,10 @@ function App() {
     <Route path='/Backed_page' Component={Backed_Page}></Route>
     <Route path='/Wifi_Password' Component={Wifi_Password}></Route>
     <Route path='/HeadphoneSafety' Component={HeadphoneSafety}></Route>
-    
-
-    
+    <Route path="/AutoLock" Component={AutoLock}></Route>
+    <Route path='/View_Display' Component={View_Display}></Route>
+    <Route path='/NightShift' Component={NightShift}></Route>
+    <Route path='/TextSize' Component={TextSize}></Route>
     
 
 

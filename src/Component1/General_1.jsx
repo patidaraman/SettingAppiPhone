@@ -8,7 +8,7 @@ function General_1() {
 
 <div>
         
-        <div style={{display:"flex" , flexDirection:"row", marginTop:"35px" , alignItems:"flex-start" ,justifyContent:"flex-start" , gap:"25px" } }>
+        <div style={{display:"flex" , flexDirection:"row", gap:"10px" } }>
         <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
         <div style={{color:"white" ,fontSize:"20px"}}>General</div>
         </div>

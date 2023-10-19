@@ -14,12 +14,12 @@ function Hotspot_1() {
 
   return (
     <div>
-        <div style={{display:"flex" , flexDirection:"row", marginTop:"35px" , alignItems:"flex-start" ,justifyContent:"flex-start" , gap:"5px" } }>
+        <div style={{display:"flex" , flexDirection:"row",  gap:"10px" } }>
         <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
         <div style={{color:"white" ,fontSize:"18px",marginTop:"5px"}}>Personal Hotspot</div>
         </div>
 
-         <div style={{color:"gray", fontSize:"13px", display:"flex"}}>
+         <div className='paragraph'>
           <span style={{marginLeft:"10px", marginTop:"20px",marginRight:"25px"}}>
             Personal Hotspot on your iPhone can provide internet access to other devices signed in to your
             iCloud account without requiring you to enter the password.
@@ -54,7 +54,7 @@ function Hotspot_1() {
             </div>
          </div>
 
-    <div style={{color:"gray", fontSize:"13px", display:"flex"}}>
+    <div className='paragraph'>
       <span style={{marginLeft:"10px", marginTop:"20px",marginRight:"25px"}}>
         Allow other users or devices not signed in to iCloud to look for your shared network "iPhone" when you 
         are in Personal Hotspot settings or when you turn it on in Control Center.
@@ -81,7 +81,7 @@ function Hotspot_1() {
       3. Connect to iPhone from computer.</span>
      
   <br/><br/>
-      <span style={{color:"gray", fontSize:"13px", display:"flex" , justifyContent:"space-evenly"}}>
+      <span style={{color:"gray", fontSize:"12px", display:"flex" , justifyContent:"space-evenly"}}>
       <img src={Hotspotpage_Connection_Icon} alt="Connection Icon"  height={"60"} width={"50px"}></img>
       TO CONNECT USING USB<br/>
       1. Plug iPhone into your computer.<br/>

@@ -5,7 +5,7 @@ function Certificatepage() {
     const navigate = useNavigate()
   return (
     <div>
-         <div style={{display:"flex" , flexDirection:"row", marginTop:"35px" , alignItems:"flex-start" ,justifyContent:"flex-start"  } }>
+         <div style={{display:"flex" , flexDirection:"row" } }>
         <button  style={{fontSize:"19px" ,width:"90px"}} id="button" onClick={()=>navigate(-1)}> ＜ About </button> 
         <div style={{color:"white" ,fontSize:"18px",marginTop:"5px" }}>Certificate Trust Settings</div>
        

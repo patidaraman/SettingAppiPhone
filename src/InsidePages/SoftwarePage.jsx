@@ -6,7 +6,7 @@ function SoftwarePage() {
   return (
     <div>
 <div
- style={{display:"flex" , flexDirection:"row", marginTop:"35px" , alignItems:"flex-start" ,justifyContent:"flex-start" , gap:"10px"} }>
+ style={{display:"flex" , flexDirection:"row", gap:"10px"} }>
  <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ General </button> 
  <div style={{color:"white" ,fontSize:"18px"}}>Software Update</div> 
  </div>
