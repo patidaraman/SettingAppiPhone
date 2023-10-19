@@ -116,7 +116,7 @@ function Bluetooth_1() {
   <br></br>
 
 <div className='Screen_View_Row'  >
-       <span className='paragraph'>To pair an Apple Watch with your iPhone ,
+<span className='paragraph'>To pair an Apple Watch with your iPhone ,
              go to the<br/><a href=" https://support.apple.com/en-in/HT204784" style={{textDecoration:"none",color:"#007FFF"}}  >Apple Watch app.</a>
        </span>
 </div>

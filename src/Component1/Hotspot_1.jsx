@@ -20,7 +20,7 @@ function Hotspot_1() {
         </div>
 
          <div className='paragraph'>
-          <span style={{marginLeft:"10px", marginTop:"20px",marginRight:"25px"}}>
+          <span >
             Personal Hotspot on your iPhone can provide internet access to other devices signed in to your
             iCloud account without requiring you to enter the password.
           </span>
@@ -53,9 +53,9 @@ function Hotspot_1() {
                 
             </div>
          </div>
-
+<br/>
     <div className='paragraph'>
-      <span style={{marginLeft:"10px", marginTop:"20px",marginRight:"25px"}}>
+      <span >
         Allow other users or devices not signed in to iCloud to look for your shared network "iPhone" when you 
         are in Personal Hotspot settings or when you turn it on in Control Center.
       </span>

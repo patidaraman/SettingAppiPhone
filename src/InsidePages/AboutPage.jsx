@@ -198,7 +198,7 @@ function AboutPage() {
   <hr id="Horizontal_Line_General"/>
   <div className="Screen_View_Row">
         <div  className="Button_About_Page">SEID</div>
-        <span  className='About_Arrow' >{">"}</span>
+        <span  className='About_Arrow' >00023456040568757</span>
   </div>
 
   <hr id="Horizontal_Line_General"/>

@@ -523,6 +523,7 @@ select {
   text-align: center;
   margin-top: 40px;
 
+
 }
 
 
@@ -578,3 +579,23 @@ select {
   transform: translateX(-50%);
 }
 
+
+
+/* profile section css */
+
+
+.profileview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.links{
+  text-decoration: none;
+  color: #007FFF;
+  font-size: 15px;
+  margin-left: 15px;
+
+}

@@ -24,11 +24,11 @@ import AutoLock from './InsidePages/AutoLock';
 import View_Display from './InsidePages/View_Display';
 import NightShift from './InsidePages/NightShift';
 import TextSize from './InsidePages/TextSize';
-
-
-
-
-
+import SimApplication from './InsidePages/SimApplication';
+import CallsDevices from './InsidePages/CallsDevices';
+import CallingWifi from './InsidePages/CallingWifi';
+import NetworkSelection from './InsidePages/NetworkSelection';
+import MobiledataOption from './InsidePages/MobiledataOption';
 
 
 
@@ -64,13 +64,14 @@ function App() {
     <Route path='/View_Display' Component={View_Display}></Route>
     <Route path='/NightShift' Component={NightShift}></Route>
     <Route path='/TextSize' Component={TextSize}></Route>
-    
+    <Route path='/SimApplication' Component={SimApplication}></Route>
+   <Route path='/CallsDevices' Component={CallsDevices}></Route>  
+    <Route path='/CallingWifi' Component={CallingWifi}></Route>
+    <Route path='/NetworkSelection' Component={NetworkSelection}></Route>
+    <Route  path="/MobiledataOption" Component={MobiledataOption}></Route>
 
 
-    
-    
-
-    </Routes>
+ </Routes>
     
     
     </>
