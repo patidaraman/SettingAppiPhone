@@ -60,7 +60,7 @@ function MobiledataOption() {
   
                                   <hr id="Horizontal_Line_General"  style={{marginTop:"10px"}}/>  
   
-                    <div className="Screen_View_Row" onClick={()=>navigate("")}>
+                    <div className="Screen_View_Row" onClick={()=>navigate("/VoicsData")}>
 
                            <span id="Button_General"> Voice & Data </span>
                            <div style={{marginRight:"10px"}}> 4G</div>

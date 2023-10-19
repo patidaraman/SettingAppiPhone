@@ -193,8 +193,8 @@ function Sound_1() {
 
        <div  className="Screen_View_Row">
 
-            <div className="Button_Click"  onClick={()=>navigate('')} >Ringtone</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('')}> Opening</div>
+            <div className="Button_Click"  onClick={()=>navigate('/Ringtone')} >Ringtone</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/Ringtone')}> Opening</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>

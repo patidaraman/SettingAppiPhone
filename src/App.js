@@ -29,6 +29,8 @@ import CallsDevices from './InsidePages/CallsDevices';
 import CallingWifi from './InsidePages/CallingWifi';
 import NetworkSelection from './InsidePages/NetworkSelection';
 import MobiledataOption from './InsidePages/MobiledataOption';
+import VoicsData from './InsidePages/VoicsData';
+import Ringtone from './InsidePages/Ringtone';
 
 
 
@@ -69,6 +71,8 @@ function App() {
     <Route path='/CallingWifi' Component={CallingWifi}></Route>
     <Route path='/NetworkSelection' Component={NetworkSelection}></Route>
     <Route  path="/MobiledataOption" Component={MobiledataOption}></Route>
+    <Route path='/VoicsData' Component={VoicsData}></Route>
+    <Route path='/Ringtone' Component={Ringtone}></Route>
 
 
  </Routes>

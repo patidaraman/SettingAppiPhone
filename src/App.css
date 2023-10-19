@@ -7,7 +7,7 @@ body{
   margin-right: 10px;
   min-height:800px;
   margin-top: 40px;
-  background-color:black;
+  background-color: black;
   color: white;
 }
 
@@ -268,7 +268,7 @@ height: 73px;
   color: white;
   margin-top: 5px;
   cursor: pointer; 
-  background: #2a2929f8;
+  
 }
 
 
@@ -308,7 +308,7 @@ height: 73px;
   color: white;
   width: 320px;
   text-align: left;
-  background-color: #2a2929f8;
+
   margin-left: 20px;
 }
 #Horizontal_Line_General{
@@ -597,5 +597,175 @@ select {
   color: #007FFF;
   font-size: 15px;
   margin-left: 15px;
+}
 
+
+
+/* Voice and Data page  CSS */
+/* Check list code out of many  */
+
+.option-list {
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+ 
+  padding: 8px;
+
+}
+
+/* li:hover {
+  background-color: #f0f0f0;
+} */
+
+.selected {
+ /* Highlight the selected item */
+  color: white;
+}
+
+.checkmark {
+  float: right;
+  font-size: 20px;
+  margin-right: 10px;
+  color: #007BFF;
+}
+
+
+
+.horizontal-lines {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.line {
+ width: 340px;
+  background-color: #ccc;
+  height: 1px;
+  margin: -50px 0;
+  margin-left: 10px;
+  background-color: rgb(98, 95, 95);
+ 
+}
+
+
+
+
+
+
+.brightness-slider {
+ 
+  margin: 0 auto;
+  padding: 20px;
+  width: 250px;
+ 
+ 
+}
+
+
+.overlay {
+  pointer-events: none;
+
+}
+
+input[type="range"] {
+  width: 100%;
+ 
+  
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #2980b9;
+  
+  
+}
+
+input[type="range"] {
+  appearance: none;
+  height: 5px;
+  background: #d1d1d1;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  width: 100%;
+ 
+  
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #3498db;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  cursor: pointer;
+  
+ 
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background: #2980b9;
+ 
+  
+}
+
+input[type="range"]::-moz-range-track {
+  background: #d1d1d1;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  width: 100%;
+ 
+  
+}
+
+input[type="range"]::-moz-range-progress {
+  background-color: #3498db;
+  
+  
+}
+
+input[type="range"]::-moz-range-progress:hover {
+  background-color: #2980b9;
+  
+  
+}
+
+
+
+.ringtone-selector {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.selected-ringtone {
+  font-weight: bold;
 }

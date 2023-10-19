@@ -12,6 +12,26 @@ function Display_1() {
 
 
 
+
+    const [brightness, setBrightness] = useState(100);
+
+  const handleBrightnessChange = (event) => {
+    const newBrightness = event.target.value;
+    setBrightness(newBrightness);
+  };
+
+  const overlayStyle = {
+    background: `rgba(0, 0, 0, ${(100 - brightness) / 100})`,
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 999,
+  };
+
+
+
               const [isAutomaticOn , setAutomatictOn ] = useState(false);
               const toggAutomatic =() =>{
               setAutomatictOn(!isAutomaticOn);};
@@ -93,19 +113,29 @@ function Display_1() {
           <span  className='graySmall' > BRIGHTNESS</span>
 
 
-          <div id="Blocks" style={{height:"40px",marginTop:"5px"}}>
+          <div id="Blocks" style={{height:"60px",marginTop:"5px" , width:"100%"}}>
 
                 <div className="Screen_View_Row" >
 
                      <div className='SliderRow'>
-                     <span id="Button_General"  onClick={()=>navigate("")} style={{marginTop:"10px" , marginRight:"-310px"}}>
+                     <span id="Button_General"  onClick={()=>navigate("")} style={{marginTop:"20px" , marginRight:"-310px"}}>
                       ☀︎
                       </span>
 
-                    <div className="Sound-slider">
-                    <input type="range" min="0"  max="100"  value={sliderValue}  onChange={handleSliderChange}className="sound" />
-                    </div>
-                    <span style={{marginTop:"8px" , marginRight:"12px" ,marginLeft:"110px"}}>🔆</span>
+                      <div>
+      <div className="brightness-slider">
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value={brightness}
+          onChange={handleBrightnessChange}
+        />
+      </div>
+     
+      <div className="overlay" style={overlayStyle}></div>
+    </div>
+                   <span style={{marginTop:"22px"}}>🔆</span>
 
 
          </div>
@@ -215,7 +245,8 @@ function Display_1() {
 </div>     
        
 
-       
+
+    
    
    
 </div>
