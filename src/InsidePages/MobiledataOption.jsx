@@ -34,7 +34,7 @@ function MobiledataOption() {
 
 
         <div className='top' style={{ gap:"15px"}}>
-               <button  id="button" onClick={()=>navigate(-1)} > ＜ Back </button> 
+               <div  id="button" onClick={()=>navigate(-1)} > ＜ Back </div> 
                <div style={{color:"white" , gap:"30px " , marginTop:"5px"}}> Mobile Data Option  </div>
                </div>
 

@@ -7,24 +7,21 @@ import { navigate, useNavigate } from 'react-router-dom';
 
 
 
-function Ringtone(){
+function TextTone(){
 
     
     const navigate=useNavigate()
 
 
     const options = ["Opening (Default)", "Apex" ,"Beacom" ,"Bulletin" , "By The Seaside" ,
-                      "Chimes", "Circuit","Silk","Slow Rise","Ripples","Sencha","Stargaze" , "Summit" , "Twinkel" , "Uplift" , "Waves" , "Classic"];
-
-
+                      "Chimes", "Circuit","Consetellation","Cosmic" ,"Crystel","Hilside","IIuminate","Night Owl",
+                      "Playtime","Presto","Radar","Radiate","Ripples","Sencha","Signal","Silk","Slow Rise","Stargaze" , "Summit" , "Twinkel" , "Uplift" , "Waves" ];
     const [selectedOption, setSelectedOption] = useState(null);
+  
     const handleOptionClick = (option) => {
       setSelectedOption(option === selectedOption ? null : option);
     };
 
-
-
-    
 
 
   return (
@@ -35,7 +32,7 @@ function Ringtone(){
 
                 <div className='top'>
                       <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Back </div> 
-                      <div style={{color:"white" ,fontSize:"20px" }}>Ringtone</div>
+                      <div style={{color:"white" ,fontSize:"20px" }}> Text Tone</div>
                 </div>
 
 
@@ -45,8 +42,8 @@ function Ringtone(){
 
                             <div  className="Screen_View_Row">
 
-                              <div className="Button_Click"  onClick={()=>navigate('/Ringtone')} >Vibration</div>
-                               <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/Ringtone')}> Default</div>
+                              <div className="Button_Click"  onClick={()=>navigate('/TextTone')} >Vibration</div>
+                               <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/TextTone')}> Default</div>
                                <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
                            </div>
@@ -76,7 +73,7 @@ function Ringtone(){
                               </div>
 
    
-                     <div id="blocks" style={{height:"600px",background:"#2a2929f8" , borderRadius:"8px"}}>
+                     <div id="blocks" style={{height:"940px",background:"#2a2929f8" , borderRadius:"8px"}}>
 
                             <div className="option-list">
 
@@ -104,4 +101,4 @@ function Ringtone(){
   )
 }
 
-export default Ringtone
+export default  TextTone

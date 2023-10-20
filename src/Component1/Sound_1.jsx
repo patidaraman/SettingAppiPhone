@@ -67,7 +67,7 @@ function Sound_1() {
   
     <div  style={{display:"flex", flexDirection:"row",  gap:"10px"  } }>
                     
-           <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+           <div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
            <div style={{fontSize:"18px",marginTop:"5px"}}>Sound & Haptics</div>
 
     </div>
@@ -185,7 +185,10 @@ function Sound_1() {
 
       <br/>
 
-      <span className='paragraph'>SOUND AND VIBRATION PATTERNS</span>
+<div style={{marginBottom:"5px"}}>
+<span className='paragraph'>SOUND AND VIBRATION PATTERNS</span>
+</div>
+      
 
 
 
@@ -203,8 +206,8 @@ function Sound_1() {
 
         <div  className="Screen_View_Row">
 
-            <div className="Button_Click"  onClick={()=>navigate('')} >Text Tone</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('')}>Note</div>
+            <div className="Button_Click"  onClick={()=>navigate('/TextTone')} >Text Tone</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/TextTone')}>Note</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>
@@ -212,8 +215,8 @@ function Sound_1() {
 
         <div  className="Screen_View_Row">
 
-            <div className="Button_Click"  onClick={()=>navigate('')} >New Voicemail</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('')}> Apex</div>
+            <div className="Button_Click"  onClick={()=>navigate('/NewVoicemail')} >New Voicemail</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/NewVoicemail')}> Apex</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>
@@ -222,8 +225,8 @@ function Sound_1() {
 
         <div  className="Screen_View_Row">
 
-            <div className="Button_Click"  onClick={()=>navigate('')} >Calendar Alrets</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('')}> Chord</div>
+            <div className="Button_Click"  onClick={()=>navigate('/CalenderAlerts')} >Calendar Alerts</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/CalenderAlerts')}> Chord</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>
@@ -233,8 +236,8 @@ function Sound_1() {
 
         <div  className="Screen_View_Row">
 
-            <div className="Button_Click"  onClick={()=>navigate('')} >Reminder Alrets</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('')}> Chord</div>
+            <div className="Button_Click"  onClick={()=>navigate('/ReminderAlerts')} >Reminder Alrets</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/ReminderAlerts')}> Chord</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>
@@ -243,8 +246,8 @@ function Sound_1() {
 
         <div  className="Screen_View_Row">
 
-            <div className="Button_Click"  onClick={()=>navigate('')} >Airdrop</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('')}> Pulse</div>
+            <div className="Button_Click"  onClick={()=>navigate('/AirDrop')} >Airdrop</div>
+            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/AirDrop')}> Pulse</div>
             <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
         </div>

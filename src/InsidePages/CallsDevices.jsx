@@ -23,7 +23,7 @@ function CallsDevices() {
         
         
         <div className='top' style={{ gap:"15px"}}>
-               <button  id="button" onClick={()=>navigate(-1)} > ＜ Back </button> 
+               <div  id="button" onClick={()=>navigate(-1)} > ＜ Back </div> 
                <div style={{color:"white" , gap:"10px"}}>Calls on Other Devices</div>
                </div>
 

@@ -14,7 +14,7 @@ return (
        <div className="top" >
 
 
-                <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Setting  </button> 
+                <div style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Setting  </div> 
                 <div style={{color:"white" ,fontSize:"17px" , marginLeft:"14px"}}>Apple ID</div>
        
       </div>

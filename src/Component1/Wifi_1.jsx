@@ -20,7 +20,7 @@ const navigate = useNavigate()
   <div>
 
       <div style={{display:"flex" , flexDirection:"row", gap:"60px"} }>
-      <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+      <div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
      <span >Wi-Fi</span>
 
 </div>
@@ -107,8 +107,8 @@ const navigate = useNavigate()
 
 <div className="Screen_View_Row">
      
-      <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('')} >Ask to Jion Networks </div>
-      <div style={{marginRight:"10px" , marginTop:"10px", color:"gray"}} onClick={()=>navigate('')}> Notify</div>
+      <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('/WifiAskother')} >Ask to Join Networks </div>
+      <div style={{marginRight:"10px" , marginTop:"10px", color:"gray"}} onClick={()=>navigate('/WifiAskother')}> Notify</div>
       <span  className='About_Arrow' style={{ marginTop:"10px"}}>{">"}</span>
 
 </div>
@@ -127,7 +127,7 @@ known network are available , you will be notified
 
 <div className="Screen_View_Row">
      
-      <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('')} > Auto-Join Hotspot  </div>
+      <div  className="Button_About_Page" style={{ marginTop:"10px" }} onClick={()=>navigate('/WifiAutojoin')} > Auto-Join Hotspot  </div>
     
       <span  className='About_Arrow' style={{ marginTop:"10px"}}>{">"}</span>
 

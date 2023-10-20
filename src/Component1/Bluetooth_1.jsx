@@ -13,7 +13,7 @@ function Bluetooth_1() {
     <div>
 
           <div style={{display:"flex" , flexDirection:"row" } }>
-        <button  id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+        <div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
         <div style={{color:"white" ,fontSize:"20px"}}>Bluetooth</div>
         </div>
 

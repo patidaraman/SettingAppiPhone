@@ -9,7 +9,7 @@ function Wifi_Password() {
 
 
        <div className='top'>
-        <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}>Cancel</button> 
+        <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}>Cancel</div> 
         <div style={{color:"white" ,fontSize:"20px" , marginRight:"10px" , marginTop:"2px"}}>Wi-Fi Password </div>
         <div style={{color: "rgb(49, 66, 226", fontSize:"19px"}} onClick={()=>navigate(-1)}> Done</div>
         </div>

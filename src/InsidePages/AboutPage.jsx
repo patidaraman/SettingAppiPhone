@@ -9,7 +9,7 @@ function AboutPage() {
     <div>
 
         <div className='top'>
-        <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ General </button> 
+        <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ General </div> 
         <div className='About_Arrow' style={{color:"white" ,fontSize:"20px"}}>About</div>
         </div>
 <br/><br/>

@@ -9,7 +9,7 @@ function Batterypage() {
     
 
 <div className='top'>
-<button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ About </button> 
+<div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ About </div> 
 <div style={{color:"white" ,fontSize:"20px"}}>Battery</div>
 </div>
 <br/><br/>

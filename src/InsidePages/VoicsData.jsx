@@ -35,7 +35,7 @@ function VoicsData() {
                      <div className='top'>
 
 
-                              <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Back </button> 
+                              <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Back </div> 
                               <div style={{color:"white" ,fontSize:"20px" }}>Voice & Data</div>
                       </div>
 

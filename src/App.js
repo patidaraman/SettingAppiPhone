@@ -31,6 +31,15 @@ import NetworkSelection from './InsidePages/NetworkSelection';
 import MobiledataOption from './InsidePages/MobiledataOption';
 import VoicsData from './InsidePages/VoicsData';
 import Ringtone from './InsidePages/Ringtone';
+import SimPin from './InsidePages/SimPin';
+import TextTone from './InsidePages/TextTone';
+import NewVoicemail from './InsidePages/NewVoicemail';
+import CalenderAlerts from './InsidePages/CalenderAlerts';
+import ReminderAlerts from './InsidePages/ReminderAlerts';
+import AirDrop from './InsidePages/AirDrop';
+import WifiAskother from './InsidePages/WifiAskother';
+import WifiAutojoin from './InsidePages/WifiAutojoin';
+
 
 
 
@@ -73,7 +82,15 @@ function App() {
     <Route  path="/MobiledataOption" Component={MobiledataOption}></Route>
     <Route path='/VoicsData' Component={VoicsData}></Route>
     <Route path='/Ringtone' Component={Ringtone}></Route>
-
+    <Route path='/SimPin' Component={SimPin}></Route>
+    <Route path='/TextTone' Component={TextTone}></Route>
+    <Route path='/NewVoicemail' Component={NewVoicemail}></Route>
+    <Route path='/CalenderAlerts' Component={CalenderAlerts}></Route>
+    <Route path='/ReminderAlerts' Component={ReminderAlerts}></Route>
+    <Route path='/AirDrop' Component={AirDrop}></Route>
+    <Route path='/WifiAskother' Component={WifiAskother}></Route>
+    <Route path='WifiAutojoin' Component={WifiAutojoin}></Route>
+    
 
  </Routes>
     

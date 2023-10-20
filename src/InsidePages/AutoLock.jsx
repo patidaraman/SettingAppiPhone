@@ -11,7 +11,7 @@ function AutoLock() {
     <div >
 
     <div className='top'>
-<button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+<div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
 <div style={{color:"white"}}>Auto-Lock</div>
 </div>
 

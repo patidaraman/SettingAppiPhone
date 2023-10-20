@@ -31,7 +31,7 @@ function NightShift() {
         
 
     <div className='top'>
-           <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Back </button> 
+           <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Back </div> 
            <div style={{color:"white" ,fontSize:"20px"}}>Night Shift</div>
     </div>
 
@@ -96,7 +96,7 @@ function NightShift() {
 
 
 
-    <div id="Blocks" className='b1'>
+    <div id="Blocks" style={{height:"100px"}}>
 
                <div className="Screen_View_Row" >
 

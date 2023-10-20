@@ -5,7 +5,7 @@ function Focus_1() {
     const navigate = useNavigate()
   return (
     <div>
-        <button id="button" onClick={()=>navigate(-1)}> <p id="setting_button">＜ Settings</p> </button> 
+        <div id="button" onClick={()=>navigate(-1)}> <p id="setting_button">＜ Settings</p> </div> 
         
          <h1>
             this is focus  Section 

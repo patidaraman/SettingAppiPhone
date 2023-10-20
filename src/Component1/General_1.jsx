@@ -9,7 +9,7 @@ function General_1() {
 <div>
         
         <div style={{display:"flex" , flexDirection:"row", gap:"10px" } }>
-        <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+        <div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
         <div style={{color:"white" ,fontSize:"20px"}}>General</div>
         </div>
 

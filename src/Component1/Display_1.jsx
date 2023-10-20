@@ -12,6 +12,12 @@ function Display_1() {
 
 
 
+    const [selectedButton, setSelectedButton] = useState(null);
+
+    const handleButtonClick = (button) => {
+      setSelectedButton(button);
+    };
+      
 
     const [brightness, setBrightness] = useState(100);
 
@@ -62,7 +68,7 @@ function Display_1() {
 <div >
 
              <div  style={{display:"flex" , flexDirection:"row" ,alignItems:"center"} }>
-             <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+             <div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
              <div style={{marginTop:"8px"}} >Display & Brightness</div>
              </div>
 
@@ -71,24 +77,40 @@ function Display_1() {
 
            <span className='graySmall'>APPEARANCE</span>
 
-           <div id="Blocks" style={{height:"210px"}}>
+           <div id="Blocks" style={{height:"220px"}}>
                    <div className="Screen_View_Row" >
+                      
 
-                           <div className="colView">
+                           <div className="colView" >
                            <img  className='displayimg' src={LM}   height={"85px"}  width={"40px" }   alt="Light mode icon"></img>
-                           <span>Light</span> 
+                           <span style={{marginTop:"5px"}}>Light</span> 
+
+                           <button
+        className={`round-button ${selectedButton === 'button1' ? 'selected' : ''}`}
+        onClick={() => handleButtonClick('button1')}
+      >
+       
+        {selectedButton === 'button1' && <span className="tick">✓</span>}
+      </button>
                            </div>
                
 
 
                            <div className='colView'>
                            <img  className='displayimg'  src={DM}   height={"85px"}  width={"40px"}   alt="Dark mode icon"></img>
-                           <span>Dark</span> 
+                           <span >Dark</span> 
+                           <button
+        className={`round-button ${selectedButton === 'button2' ? 'selected' : ''}`}
+        onClick={() => handleButtonClick('button2')}
+      >
+        
+        {selectedButton === 'button2' && <span className="tick">✓</span>}
+      </button>
                            </div>
                    </div>
 
 
-<hr id="Horizontal_Line_General" style={{marginTop:"35px"}}/> 
+<hr id="Horizontal_Line_General" /> 
 
 
 

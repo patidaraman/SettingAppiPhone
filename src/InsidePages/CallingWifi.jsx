@@ -11,7 +11,7 @@ function CallingWifi() {
     <div>
 
              <div className='top' style={{ gap:"18px"}}>
-                   <button  style={{fontSize:"15px"}} id="button" onClick={()=>navigate(-1)} > ＜ Mobile Data </button> 
+                   <div  style={{fontSize:"15px"}} id="button" onClick={()=>navigate(-1)} > ＜ Mobile Data </div> 
                    <div style={{color:"white" , gap:"10px"}}>WiFi Calling</div>
              </div>
 

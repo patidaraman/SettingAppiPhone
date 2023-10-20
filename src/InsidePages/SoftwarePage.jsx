@@ -5,9 +5,10 @@ function SoftwarePage() {
   const navigate = useNavigate()
   return (
     <div>
-<div
- style={{display:"flex" , flexDirection:"row", gap:"10px"} }>
- <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ General </button> 
+
+
+<div className='top' style={{ gap:"15px"}}>
+ <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ General </div> 
  <div style={{color:"white" ,fontSize:"18px"}}>Software Update</div> 
  </div>
 
@@ -21,9 +22,9 @@ function SoftwarePage() {
   borderRadius:"8px"}}>
 
     <div className='Screen_View_Row'>
-     <button style={{fontSize:"17px"  , marginTop:"10px" ,  marginLeft:"15px", width:"320px" , 
+     <div style={{fontSize:"17px"  , marginTop:"10px" ,  marginLeft:"15px", width:"320px" , 
      textAlign:"left",color:"white" ,  background:"#2a2929f8" , borderTop:"none" , 
-     borderLeft:"none" , borderBottom:"none" , borderRight:"none"}} onClick={()=>navigate('')} >Automatic Updates  </button>
+     borderLeft:"none" , borderBottom:"none" , borderRight:"none"}} onClick={()=>navigate('')} >Automatic Updates  </div>
        <span style={{marginRight:"15px " , marginTop:"10px"}}>{">"}</span>
 
     </div>

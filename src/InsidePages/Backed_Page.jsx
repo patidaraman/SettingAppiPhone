@@ -10,7 +10,7 @@ function Backed_Page() {
          <div style={{display:"flex" , flexDirection:"row", gap:"10px" } }>
 
 
-        <button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Setting  </button> 
+        <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Setting  </div> 
         <div style={{color:"white" ,fontSize:"17px"}}>Apple ID Backed Up</div>
         
     </div>

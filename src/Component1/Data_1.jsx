@@ -15,12 +15,12 @@ function Data_1() {
         <div className="top" >
 
 
-                <button button  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Setting  </button> 
+                <div style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Setting  </div> 
                  <div style={{color:"white" ,fontSize:"17px" , marginLeft:"4px"}}>Mobile Data</div>
 
         </div> 
 
-<br/><br/>
+<br/>
       
 
 <div id="Blocks" style={{height:"120px",marginTop:"25px"}}>
@@ -126,9 +126,9 @@ function Data_1() {
       <hr id="Horizontal_Line_General"/>
             
         
-               <div className="Screen_View_Row" onClick={()=>navigate("")}>
+               <div className="Screen_View_Row" onClick={()=>navigate("/SimPin")}>
 
-                          <span id="Button_General"> SIM PIN   </span>
+                          <span id="Button_General" onClick={()=>navigate("/SimPin")}> SIM PIN   </span>
                           <span className='Arrow_General' > {">"}</span>     
 
                 </div>

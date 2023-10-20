@@ -15,7 +15,7 @@ function Hotspot_1() {
   return (
     <div>
         <div style={{display:"flex" , flexDirection:"row",  gap:"10px" } }>
-        <button id="button" onClick={()=>navigate(-1)}> ＜ Settings </button> 
+        <div id="button" onClick={()=>navigate(-1)}> ＜ Settings </div> 
         <div style={{color:"white" ,fontSize:"18px",marginTop:"5px"}}>Personal Hotspot</div>
         </div>
 
