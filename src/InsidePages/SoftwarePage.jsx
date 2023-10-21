@@ -8,7 +8,7 @@ function SoftwarePage() {
 
 
 <div className='top' style={{ gap:"15px"}}>
- <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ General </div> 
+ <div id="button" onClick={()=>navigate(-1)}> ＜ General </div> 
  <div style={{color:"white" ,fontSize:"18px"}}>Software Update</div> 
  </div>
 

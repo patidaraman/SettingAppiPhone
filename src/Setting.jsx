@@ -46,215 +46,210 @@ function Setting() {
 
 
   return (
+
+
 <div id="Main">
    
-        <div id="setting">
-        <h1> Settings</h1></div>
+              <div id="setting">
+              <h1> Settings</h1></div>
     
 
-   <br/>
+             <br/>
 
-    <div id="block_1" >
-    <div className="search-bar">
-      <input
-        type="text"
-        placeholder=" 🔍 Search"
-        value={searchText}
-        onChange={handleInputChange}
-      />
-    </div>
-    <br/>
-    </div> 
+             <div id="block_1" >
+                 <div className="search-bar">
+                     <input
+                       type="text"
+                       placeholder=" 🔍 Search"
+                       value={searchText}
+                       onChange={handleInputChange}
+                    />
+                 </div>
+                 <br/>
+             </div> 
 
 
 
 {/* 2nd block */}
 
-     <div className="Second_Block" id='Blocks'>
+         <div className="Second_Block" id='Blocks'>
 
-            <div id="Screen_View_Col">
+                    <div id="Screen_View_Col">
 
-
-             <div>
-                 <img src={aman} width={60} height={60}  className="profile_icon" alt="Profile Icon" />  
-            </div>
+                           <div>
+                           <img src={aman} width={60} height={60}  className="profile_icon" alt="Profile Icon" />  
+                           </div>
         
-            <span className='Profile_View' onClick={()=>navigate("/Profile_1")}> Aman Patidar 
-            <div className="Info_Small_Text" >Apple ID, iCloud, Media</div>
-            <div style={{fontSize:"10px",marginBottom:"55px"}}>
-            & purchases</div> </span> 
+                           <span className='Profile_View' onClick={()=>navigate("/Profile_1")}> Aman Patidar 
+                           <div className="Info_Small_Text" >Apple ID, iCloud, Media</div>
+                           <div style={{fontSize:"10px",marginBottom:"55px"}}>
+                           & purchases</div> </span> 
 
-            <div className='Arrow_Icon' style={{marginTop:"30px"}} >  {">"}  </div>
+                          <div className='Arrow_Icon' style={{marginTop:"30px"}} >  {">"}  </div>
             
          
-         </div>
+                     </div>
           
          
-<hr id="Horizontal_Line" style={{marginTop:"7px"}}></hr>
-<div className="Screen_View_Row">
-<div style={{marginLeft:"20px",marginTop:"5px"}}  onClick={()=>navigate("/Backed_page")}>iPhone Not Backed Up</div>
-<div className='Arrow_Icon'  >  {">"}  </div>
-</div>
+                 <hr id="Horizontal_Line" style={{marginTop:"7px"}}></hr>
 
-    
-    </div> 
+               
+                     <div className="Screen_View_Row">
+                           <div style={{marginLeft:"20px",marginTop:"5px"}}  onClick={()=>navigate("/Backed_page")}>iPhone Not Backed Up</div>
+                           <div className='Arrow_Icon'  >  {">"}  </div>
+                     </div> 
+         </div> 
         
     
-         <br/>   
+                 <br/>   
     
 
-{/* 3rd block */}
+  {/* 3rd block */}
 
-    <div className="Third_Block" id="Blocks">
+        <div className="Third_Block" id="Blocks">
 
-        <div id="Airplane_mode" >
+                <div  className="Screen_View_Row" >
  
-              <img style={{marginTop:"10px",borderRadius:"30%"}} src={Airplane} width={30} height={30}  alt="Airplane Mode Icon" />
-              <div id="set_content">
-              <span  style={{marginTop:"20px"}} className='Name'> Airplane Mode </span>
-              <label className="switch">
-              <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
-              <span className="slider round"></span>
-              </label>
-              </div>
-       
-        </div>
+                     <div style={{marginTop:"10px"}}>
+                     <img className="Image_Align" src={Airplane} width={30} height={30}  alt="Airplane Mode Icon" />
+                     </div>
+                   
+                     <div style={{marginTop:"10px"}}>
+                     <span  className='Name'> Airplane Mode </span>
+                     </div>
+                    
 
-             <hr id="Horizontal_Line" ></hr>
+                    <div style={{marginTop:"10px", marginRight:"5px"}}>
+                    <label className="switch">
+                         <input type="checkbox" onChange={toggleAirplaneMode} checked={isAirplaneModeOn} />
+                         <span className="slider round"></span>
+                    </label>
+                    </div>
+                   
+          </div>
 
-        <div  className="Screen_View_Row">
 
-            <div>
-            <img  id="Image_Align" style={{marginLeft:"10px"}} src={wifi}   alt="Wifi Icon" />
-            </div>
 
-            <div className="Button_Click"  onClick={()=>navigate('/Wifi_1')} >Wi-Fi</div>
-            <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/WiFi_1')}> Airtel_8965992254_5G</div>
-            <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
-        </div>
+          <hr id="Horizontal_Line" ></hr>
+
+
+                 <div  className="Screen_View_Row">
+                       <div>
+                           <img className="Image_Align" style={{marginLeft:"10px"}} src={wifi}   alt="Wifi Icon" />
+                       </div>
+
+                       <div className="Button_Click"  onClick={()=>navigate('/Wifi_1')} >Wi-Fi</div>
+                       <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/WiFi_1')}> Airtel_8965992254_5G</div>
+                       <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
+                </div>
 
       
-             <hr id="Horizontal_Line" ></hr>
+         <hr id="Horizontal_Line" ></hr>
 
-        <div  className="Screen_View_Row">
+                <div  className="Screen_View_Row">
+                      <div>
+                          <img className="Image_Align"  src={bluetooth}   alt="Bluetooth Icon" />
+                      </div>
 
-            <div>
-            <img id="Image_Align"  src={bluetooth}   alt="Bluetooth Icon" />
-            </div>
+                      <div  className="Button_Click"  onClick={()=>navigate('/Bluetooth_1')} >Bluetooth</div>
+                     <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{" >"}</span>
+                </div>
 
-            <div  className="Button_Click"  onClick={()=>navigate('/Bluetooth_1')} >Bluetooth</div>
-            <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{" >"}</span>
+         <hr  id="Horizontal_Line"></hr>
 
+
+                <div  className="Screen_View_Row">
+                     <div>
+                          <img className="Image_Align"  src={data} alt="Mobile Data Icon" />
+                     </div>
+
+                     <div className="Button_Click"  onClick={()=>navigate('/Data_1')} >Mobile Date</div>
+                     <span   className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
+                </div>
+
+         <hr  id="Horizontal_Line"></hr>
+
+                  <div  className="Screen_View_Row">
+                        <div>
+                             <img className="Image_Align"  src={hotspot}   alt="Hotspot  Icon" />
+                        </div>
+
+                        <div  className="Button_Click" onClick={()=>navigate('/Hotspot_1')} >Personal Hotspot</div>
+                        <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
+                 </div>       
         </div>
-
-        <hr  id="Horizontal_Line"></hr>
-
-        <div  className="Screen_View_Row">
-
-            <div>
-            <img  id="Image_Align"  src={data} alt="Mobile Data Icon" />
-            </div>
-
-            <div className="Button_Click"  onClick={()=>navigate('/Data_1')} >Mobile Date</div>
-            <span   className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
-
-        </div>
-
-        <hr  id="Horizontal_Line"></hr>
-
-        <div  className="Screen_View_Row">
-
-            <div>
-            <img  id="Image_Align"  src={hotspot}   alt="Hotspot  Icon" />
-            </div>
-
-            <div  className="Button_Click" onClick={()=>navigate('/Hotspot_1')} >Personal Hotspot</div>
-            <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
-
-        </div>       
-    
-    </div>
 
 
 
     <br/>
 
 
-{/* 4th block */}
+  {/* 4th block */}
 
     <div className="Fourth_Block" id="Blocks">
+                 <div  className="Screen_View_Row">
+                         <div>
+                             <img className="Image_Align" style={{marginTop:"10px"}} src={notification}  alt="Notification Icon" />
+                         </div>
+                          <div  className="Button_Click"  style={{ marginTop:"10px" }} onClick={()=>navigate('/Notification_1')} >Notification</div>
+                         <span   className="Arrow_Icon" style={{ marginTop:"10px"}}>{">"}</span>
+                 </div>
 
-        <div  className="Screen_View_Row">
-                <div>
-                <img  id="Image_Align" style={{marginTop:"10px"}} src={notification}  alt="Notification Icon" />
-                </div>
-            <div  className="Button_Click"  style={{ marginTop:"10px" }} onClick={()=>navigate('/Notification_1')} >Notification</div>
-              <span   className="Arrow_Icon" style={{ marginTop:"10px"}}>{">"}</span>
-        </div>
-
-        <hr  id="Horizontal_Line"></hr>
-
-
-
-        <div  className="Screen_View_Row">
-                <div>
-                <img id="Image_Align"  src={sound}    alt="Hotspot  Icon" />
-                </div>
-            <div   className="Button_Click" onClick={()=>navigate('/Sound_1')} >Sound & Haptics</div>
-              <span  className="Arrow_Icon"  style={{ marginTop:"5px"}}>{">"}</span>
-        </div>
-
-
-        <hr id="Horizontal_Line"  ></hr>
+            <hr  id="Horizontal_Line"></hr>
 
 
 
-        <div  className="Screen_View_Row">
-                <div>
-                <img  id="Image_Align"  src={focus}   alt="Hotspot  Icon" />
-                </div>
-            <div  className="Button_Click"  onClick={()=>navigate('/Focus_1')} >Focus</div>
-              <span  className="Arrow_Icon"  style={{ marginTop:"5px"}}>{">"}</span>
-        </div>
+                 <div  className="Screen_View_Row">
+                          <div>
+                              <img className="Image_Align"  src={sound}    alt="Hotspot  Icon" />
+                         </div>
+                         <div   className="Button_Click" onClick={()=>navigate('/Sound_1')} >Sound & Haptics</div>
+                         <span  className="Arrow_Icon"  style={{ marginTop:"5px"}}>{">"}</span>
+                 </div>
 
 
-    </div>
+            <hr id="Horizontal_Line"  ></hr>
+
+
+
+                   <div  className="Screen_View_Row">
+                         <div>
+                             <img className="Image_Align"  src={focus}   alt="Hotspot  Icon" />
+                         </div>
+                         <div  className="Button_Click"  onClick={()=>navigate('/Focus_1')} >Focus</div>
+                         <span  className="Arrow_Icon"  style={{ marginTop:"5px"}}>{">"}</span>
+                 </div>
+     </div>
 
         <br/>
 
 
-{/* 5th block */}
+  {/* 5th block */}
 
     <div className="Fifth_Block" id="Blocks">
 
 
-        <div  className="Screen_View_Row">
-
-                 <div>
-                     <img id="Image_Align"  style={{marginTop:"10px"}} src={general}  alt="General Icon" />
-                 </div>
-
-                 <div  className="Button_Click" style={{ marginTop:"10px" }} onClick={()=>navigate('/General_1')} >General</div>
-                    <span   className="Arrow_Icon" style={{marginTop:"10px"}}>{">"}</span>
-        </div>
+                    <div  className="Screen_View_Row">
+                             <div>
+                                  <img className="Image_Align"  style={{marginTop:"10px"}} src={general}  alt="General Icon" />
+                             </div>
+                              <div  className="Button_Click" style={{ marginTop:"10px" }} onClick={()=>navigate('/General_1')} >General</div>
+                              <span   className="Arrow_Icon" style={{marginTop:"10px"}}>{">"}</span>
+                     </div>
 
 
-                <hr id="Horizontal_Line" ></hr>
+             <hr id="Horizontal_Line" ></hr>
 
 
-        <div  className="Screen_View_Row">
-
-             <div>
-                <img id="Image_Align" src={displayB} alt="Display  Icon" />
-             </div>
-
-                <div className="Button_Click"  onClick={()=>navigate('/Display_1')} >Display & Brightness</div>
-                <span  className="Arrow_Icon" style={{marginTop:"5px"}}>{">"}</span>
-        </div>
-
-
-    </div> 
+                     <div  className="Screen_View_Row">
+                          <div>
+                                <img className="Image_Align" src={displayB} alt="Display  Icon" />
+                          </div>
+                           <div className="Button_Click"  onClick={()=>navigate('/Display_1')} >Display & Brightness</div>
+                           <span  className="Arrow_Icon" style={{marginTop:"5px"}}>{">"}</span>
+                     </div>
+     </div> 
 
         <br></br> 
 

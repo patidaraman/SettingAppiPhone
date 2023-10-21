@@ -6,7 +6,7 @@ function Coveragepage() {
   return (
     <div>
         <div className='top'>
-        <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ About  </div> 
+        <div  id="button" onClick={()=>navigate(-1)}> ＜ About  </div> 
         <div style={{color:"white" ,fontSize:"20px"}}>Coverage</div>
         </div>
         <br/><br/>

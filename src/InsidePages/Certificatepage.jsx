@@ -6,8 +6,8 @@ function Certificatepage() {
   return (
     <div>
          <div style={{display:"flex" , flexDirection:"row" } }>
-        <div  style={{fontSize:"19px" ,width:"90px"}} id="button" onClick={()=>navigate(-1)}> ＜ About </div> 
-        <div style={{color:"white" ,fontSize:"18px",marginTop:"5px" }}>Certificate Trust Settings</div>
+        <div  id="button" onClick={()=>navigate(-1)}> ＜ About </div> 
+        <div style={{color:"white" ,fontSize:"18px" }}>Certificate Trust Settings</div>
        
     </div>
 <br/><br/>

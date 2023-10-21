@@ -31,7 +31,7 @@ function TextTone(){
 
 
                 <div className='top'>
-                      <div  style={{fontSize:"19px"}} id="button" onClick={()=>navigate(-1)}> ＜ Back </div> 
+                      <div  id="button" onClick={()=>navigate(-1)}> ＜ Back </div> 
                       <div style={{color:"white" ,fontSize:"20px" }}> Text Tone</div>
                 </div>
 
