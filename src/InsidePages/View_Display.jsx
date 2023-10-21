@@ -26,7 +26,7 @@ function View_Display() {
                  </div>
 
 
-
+                 
 
 
                 <div id="Blocks" style={{height:"450px"}}>

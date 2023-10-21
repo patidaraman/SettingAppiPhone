@@ -39,6 +39,7 @@ import ReminderAlerts from './InsidePages/ReminderAlerts';
 import AirDrop from './InsidePages/AirDrop';
 import WifiAskother from './InsidePages/WifiAskother';
 import WifiAutojoin from './InsidePages/WifiAutojoin';
+import NPE from './InsidePages/NPE';
 
 
 
@@ -90,6 +91,7 @@ function App() {
     <Route path='/AirDrop' Component={AirDrop}></Route>
     <Route path='/WifiAskother' Component={WifiAskother}></Route>
     <Route path='WifiAutojoin' Component={WifiAutojoin}></Route>
+    <Route path='NPE' Component={NPE}></Route>
     
 
  </Routes>

@@ -58,7 +58,7 @@ function Display_1() {
           {" "}
           ＜ Settings{" "}
         </div>
-        <div style={{ marginTop: "8px" }}>Display & Brightness</div>
+        <div style={{ marginLeft: "8px" }}>Display & Brightness</div>
       </div>
 
       <br />
