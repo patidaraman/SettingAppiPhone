@@ -7,7 +7,32 @@ function Data_1() {
   const [isMobileDataOn, setMobileDataOn] = useState(false);
   const togglMobileData = () => {
     setMobileDataOn(!isMobileDataOn);
+    sendDataToServer(!isMobileDataOn);
   };
+
+  const sendDataToServer = async (data) => {
+    fetch("http://localhost:8000/mobiledata/mobiledata", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify( { isMobileDataOn:data}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+
+
+  };
+
+
+
+
+
   return (
     <div>
       <div className="top">

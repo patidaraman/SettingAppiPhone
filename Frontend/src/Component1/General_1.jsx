@@ -5,7 +5,7 @@ function General_1() {
   const navigate = useNavigate();
   return (
     <div>
-      <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+      <div className="GHS">
         <div id="button" onClick={() => navigate(-1)}>
           {" "}
           ＜ Settings{" "}

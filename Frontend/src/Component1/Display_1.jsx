@@ -4,20 +4,46 @@ import LM from "../images/LM.jpeg";
 import DM from "../images/DM.jpeg";
 
 function Display_1() {
+
   const navigate = useNavigate();
 
   const [selectedButton, setSelectedButton] = useState(null);
-
   const handleButtonClick = (button) => {
     setSelectedButton(button);
   };
 
-  const [brightness, setBrightness] = useState(100);
+
+
+
+
+  const [brightness, setBrightness] = useState(80);
 
   const handleBrightnessChange = (event) => {
     const newBrightness = event.target.value;
+    sendDataToServer(newBrightness);
     setBrightness(newBrightness);
   };
+
+  const sendDataToServer = (newBrightness) => {
+
+    fetch('http://localhost:8000/brightness/brightness', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ brightness: newBrightness }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Data sent to the server:', data);
+      })
+      .catch((error) => {
+        console.error('Error sending data to the server:', error);
+      });
+
+  };
+
+
 
   const overlayStyle = {
     background: `rgba(0, 0, 0, ${(100 - brightness) / 100})`,
@@ -29,6 +55,16 @@ function Display_1() {
     zIndex: 999,
   };
 
+
+
+
+
+
+
+
+
+
+
   const [isAutomaticOn, setAutomatictOn] = useState(false);
   const toggAutomatic = () => {
     setAutomatictOn(!isAutomaticOn);
@@ -39,14 +75,10 @@ function Display_1() {
     setRaisetoWakeOn(!isRaisetoWakeOn);
   };
 
-  const [isChangeWithButtonOn, setChangeWithButtontOn] = useState(false);
-  const toggleChangeWithButton = () => {
-    setChangeWithButtontOn(!isChangeWithButtonOn);
-  };
 
   const [isBoldTextOn, setBoldTextOn] = useState(false);
   const togglBoldText = () => {
-    setBoldTextOn(!isBoldTextOn);
+        setBoldTextOn(!isBoldTextOn);
   };
 
   return (
@@ -211,8 +243,8 @@ function Display_1() {
               <label className="switch">
                 <input
                   type="checkbox"
-                  onChange={toggleChangeWithButton}
-                  checked={isChangeWithButtonOn}
+                  onChange={toggleRaisetoWake}
+                  checked={isRaisetoWakeOn}
                 />
                 <span className="slider round"></span>
               </label>
