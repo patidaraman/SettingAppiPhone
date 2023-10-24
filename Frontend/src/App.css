@@ -747,3 +747,51 @@ select {
   margin-top: 5px;
   margin-right: 10px;
 }
+
+
+
+/* wifi password css */
+
+.cross{
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.passwordWritten{
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+.onDone{
+  
+  font-size: 19px;
+  border: none;
+  background-color: black;
+  color: rgb(49,66 ,266);
+}
+
+.WiFiPasswordW{
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-top: 2px;
+
+}
+
+
+
+/* Hotspage css */
+
+.GHS{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+}
+
+.PH{
+  font-size: 18px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+

@@ -4,16 +4,16 @@ import wifi from './images/wifi.jpg'
 import notification from './images/notification.jpg'
 import data from './images/data.jpg'
 import hotspot from './images/hotspot.jpg'
-
 import sound from './images/sound.jpg'
 import focus from './images/focus.jpeg'
 import general from './images/general.png'
 import displayB from './images/displayB.jpg'
 import bluetooth from './images/bluetooth.jpg'
 import React from 'react'
- import { NavLink, navigate, useNavigate } from 'react-router-dom'
+ import { useNavigate } from 'react-router-dom'
 import  { useState } from 'react';
 import './App.css'
+
 
 
 
@@ -23,11 +23,31 @@ function Setting() {
     const [searchText, setSearchText] = useState('');
     const handleInputChange = (e) => 
        setSearchText(e.target.value);
-       //AirplaneMode SliderButton
 
+
+       //AirplaneMode SliderButton
        const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
        const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);};
+       setIsAirplaneModeOn(!isAirplaneModeOn);
+       sendDataToServer(!isAirplaneModeOn);
+     };
+
+       const sendDataToServer = async (data) => {
+                 fetch("http://localhost:8000/airplanemode/AirplaneMode", {
+                       method: "POST",
+                       headers: {
+                                  "Content-Type": "application/json",
+                                },
+                       body: JSON.stringify( { isAirplaneModeOn:data}),
+                    })
+                  .then((response) => response.json())
+                  .then((data) => {
+                  console.log("Data sent to the server:", data);
+                   })
+                 .catch((error) => {
+                 console.error("Error sending data:", error);
+              });
+            };
 
 
 

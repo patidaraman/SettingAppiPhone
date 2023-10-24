@@ -7,7 +7,25 @@ function MobiledataOption() {
   const [isDataOptionOn, setDataOptionOn] = useState(false);
   const toggleDataOption = () => {
     setDataOptionOn(!isDataOptionOn);
+    // sendDataToServer(!isDataOptionOn);
   };
+
+  // const sendDataToServer = async (data) => {
+  //   fetch("http://localhost:8000/MobileData/dataoption", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ isDataOptionOn: data }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log("Data sent to the server:", data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error sending data:", error);
+  //     });
+  // };
 
   const [isLowDataModeOn, setLowDataModeOn] = useState(false);
   const toggleLowDataMode = () => {

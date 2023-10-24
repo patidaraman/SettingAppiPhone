@@ -50,12 +50,12 @@ function Sound_1() {
     <div>
       {/* Sound Page Heading  */}
 
-      <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+      <div className="GHS">
         <div id="button" onClick={() => navigate(-1)}>
           {" "}
           ＜ Settings{" "}
         </div>
-        <div style={{ fontSize: "18px", marginTop: "5px" }}>
+        <div style={{ fontSize: "18px", marginTop: "5px" , marginLeft:"5px" }}>
           Sound & Haptics
         </div>
       </div>

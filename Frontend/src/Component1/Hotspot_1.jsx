@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import HotspotWifiBackground from "../images/HotspotWifiBackground.png";
@@ -6,26 +6,72 @@ import HotspotBluetoothBackground from "../images/HotspotBluetoothBackground.png
 import HotspotConnectionBackground from "../images/HotspotConnectionBackground.png";
 
 function Hotspot_1() {
+
+
+
   const navigate = useNavigate();
 
-  // Hotepot on off Toggle button
 
+
+  // Hotspot on off Toggle button
   const [isHotspotOn, setHotspotOn] = useState(false);
   const toggleHotspot = () => {
     setHotspotOn(!isHotspotOn);
+    sendDataToServer(!isHotspotOn);
+  };
+
+  const [retrievedPassword, setRetrievedPassword] = useState('');
+  useEffect(() => {
+    // Fetch the saved password from your server when the component mounts
+    fetch('http://localhost:8000/password/Password', {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.length > 0) {
+          setRetrievedPassword(data[0].password);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching password:', error);
+      });
+  }, []);
+
+
+
+
+
+
+
+  const sendDataToServer = async (data) => {
+    fetch("http://localhost:8000/hotspot/hotspot", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify( { isHotspotOn:data}),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+
+
   };
 
   return (
     <div>
-      <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+      <div className="GHS">
         <div id="button" onClick={() => navigate(-1)}>
           {" "}
-          ＜ Settings{" "}
+          ＜ Settings
         </div>
-        <div style={{ color: "white", fontSize: "18px", marginTop: "5px" }}>
-          Personal Hotspot
-        </div>
+        <div className="PH"> Personal Hotspot</div>
       </div>
+      <br />
 
       <div className="paragraph">
         <span>
@@ -38,7 +84,8 @@ function Hotspot_1() {
       <div id="Blocks" style={{ height: "80px", marginTop: "25px" }}>
         <div className="Screen_View_Row">
           <span className="Button_Click" style={{ marginTop: "10px" }}>
-            Allow Others to Join
+            {" "}
+            Allow Others to Join{" "}
           </span>
 
           <span className="Toggle_Place">
@@ -60,11 +107,13 @@ function Hotspot_1() {
           onClick={() => navigate("/Wifi_Password")}
         >
           <span className="Button_Click"> Wi-Fi Password </span>
-          <div style={{ marginRight: "10px" }}> 1234567</div>
+          <div style={{ marginRight: "10px" }}> {retrievedPassword} </div>
           <span className="Arrow_Icon"> {">"}</span>
         </div>
       </div>
+
       <br />
+
       <div className="paragraph">
         <span>
           Allow other users or devices not signed in to iCloud to look for your
@@ -75,6 +124,7 @@ function Hotspot_1() {
 
       <br />
       <br />
+
       <div>
         <div style={{ height: "30px", width: "30px" }}></div>
 
@@ -108,12 +158,15 @@ function Hotspot_1() {
             marginRight: "20px",
           }}
         >
+          <div style={{marginTop:"15px"}}>
           <img
             src={HotspotBluetoothBackground}
             alt="Bluetooth Icon"
             height={"35"}
             width={"35px"}
           ></img>
+          </div>
+         
           To CONNECT USING BLUETOOTH <br />
           1. Pair iPhone with your computer.
           <br />
@@ -133,12 +186,15 @@ function Hotspot_1() {
             justifyContent: "space-evenly",
           }}
         >
+          
           <img
             src={HotspotConnectionBackground}
             alt="Connection Icon"
             height={"60"}
             width={"50px"}
           ></img>
+          
+          
           TO CONNECT USING USB
           <br />
           1. Plug iPhone into your computer.

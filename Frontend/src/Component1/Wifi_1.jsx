@@ -6,6 +6,7 @@ import WI from "../images/WI.png";
 import A from "../images/A.png";
 
 function Wifi_1() {
+
   const navigate = useNavigate();
 
   
@@ -13,7 +14,29 @@ function Wifi_1() {
   const [isWiFiOn, setWiFiOn] = useState(false);
   const toggleWiFi = () => {
     setWiFiOn(!isWiFiOn);
+    sendDataToServer(!isWiFiOn);
   };
+
+  const sendDataToServer = async (data) => {
+    fetch("http://localhost:8000/wifi/WiFi", {
+          method: "POST",
+          headers: {
+                     "Content-Type": "application/json",
+                   },
+          body: JSON.stringify( { isWiFiOn:data}),
+       })
+     .then((response) => response.json())
+     .then((data) => {
+     console.log("Data sent to the server:", data);
+      })
+    .catch((error) => {
+    console.error("Error sending data:", error);
+ });
+};
+
+
+
+
 
   return (
     <div>

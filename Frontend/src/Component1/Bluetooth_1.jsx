@@ -7,6 +7,24 @@ function Bluetooth_1() {
   const [isBluetoothOn, setBluetoothOn] = useState(false);
   const toggleBluetooth = () => {
     setBluetoothOn(!isBluetoothOn);
+    sendDataToServer(!isBluetoothOn);
+  };
+
+  const sendDataToServer = async (data) => {
+    fetch("http://localhost:8000/bluetooth/bluetooth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isBluetoothOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
 
   return (
