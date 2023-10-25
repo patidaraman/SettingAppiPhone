@@ -1,24 +1,64 @@
 const express = require("express");
-const airplanemodeRouter = express.Router();
-const  AirplaneModeModle = require("../models/AirplaneMode")
+const airplaneRouter = express.Router();
+const AirplaneModeModle =  require('../models//AirplaneMode.js')
 
 
-
-
-
-airplanemodeRouter.post("/airplanemode", async (req, res) => {
-    try {
-       const AMdata = new AirplaneModeModle({
-           
-              isAirplaneModeOn: req.body.isAirplaneModeOn,
-              });
-              console.log("Airplane Mode triggered");
-              const AMcond = await AMdata.save();
-              res.json(AMcond); 
-     } catch (error) {
-       console.error('Error storing data:', error);
-       res.status(500).send('Internal Server Error');
-     } 
+airplaneRouter.get("/", async (req, res) => {
+  try {
+    const existingRecord = await AirplaneModeModle.findOne();
+    if (existingRecord) {
+      res.json({ isAirplaneModeOn: existingRecord.isAirplaneModeOn });
+    } else {
+      res.status(404).json({ error: "Airplane Mode state not found" });
+    }
+  } catch (error) {
+    console.error('Error fetching Mobile data  setting:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
-module.exports = airplanemodeRouter
+
+
+airplaneRouter.post("/", async (req, res) => {
+  try {
+      const { isAirplaneModeOn } = req.body;
+
+      // Find the existing record, or create one if it doesn't exist
+      let existingRecord = await AirplaneModeModle.findOne();
+      if (!existingRecord) {
+          existingRecord = new AirplaneModeModle();
+      }
+
+      // Update the hotspot state
+      existingRecord.isAirplaneModeOn = isAirplaneModeOn;
+
+      await existingRecord.save();
+
+      res.json(existingRecord);
+  } catch (error) {
+      console.error('Error updating Hotspot setting:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+
+airplaneRouter.get("/", async (req, res) => {
+  try {
+    const existingRecord = await AirplaneModeModle.findOne();
+    if (existingRecord) {
+      res.json({ isAirplaneModeOn: existingRecord.isAirplaneModeOn });
+    } else {
+      res.status(404).json({ error: "Airplane Mode state not found" });
+    }
+  } catch (error) {
+    console.error('Error fetching Airplane Mode setting:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+
+
+
+module.exports = airplaneRouter;

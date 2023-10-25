@@ -5,3 +5,7 @@ const BluetoothSchema = new mongoose.Schema({
   });
   const Bluetooth = mongoose.model("Bluetooth", BluetoothSchema , "Bluetooth");
   module.exports=Bluetooth
+  
+
+
+  
