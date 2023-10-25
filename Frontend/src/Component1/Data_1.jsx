@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Data_1() {
@@ -11,7 +11,7 @@ function Data_1() {
   };
 
   const sendDataToServer = async (data) => {
-    fetch("http://localhost:8000/mobiledata/mobiledata", {
+    fetch("http://localhost:8000/mobiledata", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,9 +25,23 @@ function Data_1() {
       .catch((error) => {
         console.error("Error sending data:", error);
       });
-
-
   };
+
+
+  useEffect(() => {
+    // Fetch the Airplane Mode setting from the server when the component mounts
+    fetch("http://localhost:8000/mobiledata", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setMobileDataOn(data.isMobileDataOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Mobile Data :", error);
+      });
+  }, []);
 
 
 

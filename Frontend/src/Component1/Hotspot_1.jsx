@@ -1,66 +1,70 @@
-import React, { useEffect, useState } from "react";
 
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HotspotWifiBackground from "../images/HotspotWifiBackground.png";
 import HotspotBluetoothBackground from "../images/HotspotBluetoothBackground.png";
 import HotspotConnectionBackground from "../images/HotspotConnectionBackground.png";
 
 function Hotspot_1() {
-
-
-
   const navigate = useNavigate();
-
-
-
-  // Hotspot on off Toggle button
   const [isHotspotOn, setHotspotOn] = useState(false);
-  const toggleHotspot = () => {
-    setHotspotOn(!isHotspotOn);
-    sendDataToServer(!isHotspotOn);
-  };
+  const [retrievedPassword, setRetrievedPassword] = useState("");
 
-  const [retrievedPassword, setRetrievedPassword] = useState('');
   useEffect(() => {
     // Fetch the saved password from your server when the component mounts
-    fetch('http://localhost:8000/password/Password', {
-      method: 'GET',
-    })
+    fetch('http://localhost:8000/password/Password')
       .then((response) => response.json())
       .then((data) => {
-        if (data.length > 0) {
-          setRetrievedPassword(data[0].password);
+        if (data && data.password) {
+          setRetrievedPassword(data.password);
         }
       })
       .catch((error) => {
         console.error('Error fetching password:', error);
       });
+
+    // Fetch the hotspot state from your server to set the initial state
+    fetch('http://localhost:8000/hotspot')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.isHotspotOn !== undefined) {
+          setHotspotOn(data.isHotspotOn);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching hotspot state:', error);
+      });
   }, []);
 
+  const toggleHotspot = () => {
+    const newHotspotState = !isHotspotOn;
 
-
-
-
-
-
-  const sendDataToServer = async (data) => {
-    fetch("http://localhost:8000/hotspot/hotspot", {
+    // Send a request to the server to update the hotspot state
+    fetch("http://localhost:8000/hotspot", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify( { isHotspotOn:data}),
+      body: JSON.stringify({ isHotspotOn: newHotspotState }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data sent to the server:", data);
+        console.log("Hotspot state updated:", data);
+        setHotspotOn(newHotspotState); // Update the state in the frontend only after a successful response
       })
       .catch((error) => {
-        console.error("Error sending data:", error);
+        console.error("Error updating hotspot state:", error);
       });
-
-
   };
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -107,7 +111,7 @@ function Hotspot_1() {
           onClick={() => navigate("/Wifi_Password")}
         >
           <span className="Button_Click"> Wi-Fi Password </span>
-          <div style={{ marginRight: "10px" }}> {retrievedPassword} </div>
+          <div style={{ marginRight: "10px", color:"gray" }}> {retrievedPassword} </div>
           <span className="Arrow_Icon"> {">"}</span>
         </div>
       </div>

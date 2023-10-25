@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import LM from "../images/LM.jpeg";
 import DM from "../images/DM.jpeg";
 
 function Display_1() {
-
   const navigate = useNavigate();
 
   const [selectedButton, setSelectedButton] = useState(null);
   const handleButtonClick = (button) => {
     setSelectedButton(button);
   };
-
-
-
-
 
   const [brightness, setBrightness] = useState(80);
 
@@ -25,25 +21,21 @@ function Display_1() {
   };
 
   const sendDataToServer = (newBrightness) => {
-
-    fetch('http://localhost:8000/brightness/brightness', {
-      method: 'POST',
+    fetch("http://localhost:8000/brightness", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ brightness: newBrightness }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Data sent to the server:', data);
+        console.log("Data sent to the server:", data);
       })
       .catch((error) => {
-        console.error('Error sending data to the server:', error);
+        console.error("Error sending data to the server:", error);
       });
-
   };
-
-
 
   const overlayStyle = {
     background: `rgba(0, 0, 0, ${(100 - brightness) / 100})`,
@@ -64,22 +56,172 @@ function Display_1() {
 
 
 
-
-  const [isAutomaticOn, setAutomatictOn] = useState(false);
-  const toggAutomatic = () => {
-    setAutomatictOn(!isAutomaticOn);
+  const [isAutomaticOn, setAutomaticOn] = useState( false);
+  const toggleAutomatic = () => {
+    setAutomaticOn(!isAutomaticOn);
+    sendAutomaticServer(!isAutomaticOn);
   };
+
+  const sendAutomaticServer = async (data) => {
+    fetch("http://localhost:8000/automatic/automatic", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isAutomaticOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    // Fetch the Automatic setting from the server when the component mounts
+    fetch("http://localhost:8000/automatic/automatic", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setAutomaticOn(data.isAutomaticOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Automatic setting :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+  const [selectedAutoLockTime, setSelectedAutoLockTime] = useState("");
+
+  useEffect(() => {
+    // Fetch the selected auto-lock time from the server when the component mounts
+    fetch("http://localhost:8000/autolock/autolock", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+       
+        setSelectedAutoLockTime(data.selectedTime);
+      })
+      .catch((error) => {
+        console.error("Error fetching Auto-Lock time:", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   const [isRaisetoWakeOn, setRaisetoWakeOn] = useState(false);
   const toggleRaisetoWake = () => {
     setRaisetoWakeOn(!isRaisetoWakeOn);
+    sendRaisetoWakeServer(!isRaisetoWakeOn);
   };
+
+  const sendRaisetoWakeServer = async (data) => {
+    fetch("http://localhost:8000/raisetowake/raisetowake", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isRaisetoWakeOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+  useEffect(() => {
+    // Fetch the Raise to Wake  setting from the server when the component mounts
+    fetch("http://localhost:8000/raisetowake/raisetowake", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setRaisetoWakeOn(data.isRaisetoWakeOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Raise to Wake :", error);
+      });
+  }, []);
+
+
+
 
 
   const [isBoldTextOn, setBoldTextOn] = useState(false);
-  const togglBoldText = () => {
-        setBoldTextOn(!isBoldTextOn);
+  const toggleBoldText = () => {
+    setBoldTextOn(!isBoldTextOn);
+    sendBoldTextServer(!isBoldTextOn);
+    
   };
+  const  sendBoldTextServer = async (data) => {
+    fetch("http://localhost:8000/boldtext/boldtext", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isBoldTextOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+
+  useEffect(() => {
+    // Fetch the Raise to Wake  setting from the server when the component mounts
+    fetch("http://localhost:8000/boldtext/boldtext", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setBoldTextOn(data.isBoldTextOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Raise to Wake :", error);
+      });
+  }, []);
+    
+   
+  
+
+
+  
 
   return (
     <div>
@@ -151,7 +293,7 @@ function Display_1() {
             <label className="switch">
               <input
                 type="checkbox"
-                onChange={toggAutomatic}
+                onChange={toggleAutomatic}
                 checked={isAutomaticOn}
               />
               <span className="slider round"></span>
@@ -227,7 +369,7 @@ function Display_1() {
             </div>
             <div className=" ThreeInRow" onClick={() => navigate("/AutoLock")}>
               {" "}
-              Never
+              {selectedAutoLockTime}
             </div>
             <span className=" ThreeInRow">{">"}</span>
           </div>
@@ -282,7 +424,7 @@ function Display_1() {
               <label className="switch">
                 <input
                   type="checkbox"
-                  onChange={togglBoldText}
+                  onChange={toggleBoldText}
                   checked={isBoldTextOn}
                 />
                 <span className="slider round"></span>

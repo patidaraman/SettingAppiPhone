@@ -12,7 +12,7 @@ function Wifi_Password() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8000/password/Password", {
+    const response = await fetch("http://localhost:8000/password", {
       method: "POST",
       body: JSON.stringify(Password),
       headers: {
@@ -23,6 +23,12 @@ function Wifi_Password() {
     console.log(data);
     navigate('/Hotspot_1');
   };
+
+
+
+
+
+  
 
   return (
     <div>

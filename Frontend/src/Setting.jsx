@@ -9,9 +9,8 @@ import focus from './images/focus.jpeg'
 import general from './images/general.png'
 import displayB from './images/displayB.jpg'
 import bluetooth from './images/bluetooth.jpg'
-import React from 'react'
  import { useNavigate } from 'react-router-dom'
-import  { useState } from 'react';
+import  { useEffect, useState } from 'react';
 import './App.css'
 
 
@@ -26,43 +25,51 @@ function Setting() {
 
 
        //AirplaneMode SliderButton
-       const [isAirplaneModeOn, setIsAirplaneModeOn] = useState(false);
+       const [isAirplaneModeOn, setAirplaneModeOn] = useState(false);
        const toggleAirplaneMode = () => {
-       setIsAirplaneModeOn(!isAirplaneModeOn);
-       sendDataToServer(!isAirplaneModeOn);
-     };
+                setAirplaneModeOn(!isAirplaneModeOn);  
+                sendAirplaneToServer(!isAirplaneModeOn);          
+                };
 
-       const sendDataToServer = async (data) => {
-                 fetch("http://localhost:8000/airplanemode/AirplaneMode", {
-                       method: "POST",
-                       headers: {
-                                  "Content-Type": "application/json",
-                                },
-                       body: JSON.stringify( { isAirplaneModeOn:data}),
+
+                const sendAirplaneToServer = async (data) => {
+                    fetch("http://localhost:8000/airplanemode", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({ isAirplaneModeOn: data }),
                     })
-                  .then((response) => response.json())
-                  .then((data) => {
-                  console.log("Data sent to the server:", data);
-                   })
-                 .catch((error) => {
-                 console.error("Error sending data:", error);
-              });
-            };
+                      .then((response) => response.json())
+                      .then((data) => {
+                        console.log("Data sent to the server:", data);
+                      })
+                      .catch((error) => {
+                        console.error("Error sending data:", error);
+                      });
+                  };
 
 
 
-        // const [hover, setHover] = useState(false);
+                  useEffect(() => {
+                    // Fetch the Scheduled setting from the server when the component mounts
+                    fetch("http://localhost:8000/airplanemode", {
+                      method: "GET",
+                    })
+                      .then((response) => response.json())
+                      .then((data) => {
+                        // Set the initial state based on the response
+                        setAirplaneModeOn(data.isAirplaneModeOn);
+                      })
+                      .catch((error) => {
+                        console.error("Error fetching Airplane Mode:", error);
+                      });
+                  }, []);
+
+   
       
-        // const handleMouseEnter = () => {
-        //   setHover(true);
-        // };
-      
-        // const handleMouseLeave = () => {
-        //   setHover(false);
-        // };
 
-
-
+   
 
 
   return (

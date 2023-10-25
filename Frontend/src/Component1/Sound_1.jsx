@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Sound_1() {
@@ -8,43 +8,292 @@ function Sound_1() {
   const [isVibrateRingOn, setVibrateRingOn] = useState(false);
   const toggleVibrateRing = () => {
     setVibrateRingOn(!isVibrateRingOn);
+    sendVibrateToServer(!isVibrateRingOn);
   };
 
-  // 2. vibrate on silent slider
-  const [isVibrateSilent, setVibrateSilentOn] = useState(false);
-  const toggleVibrateSilent = () => {
-    setVibrateSilentOn(!isVibrateSilent);
+
+  const sendVibrateToServer = async (data) => {
+    fetch("http://localhost:8000/vibratering/vibratering", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isVibrateRingOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
+
+
+  useEffect(() => {
+    // Fetch the Scheduled setting from the server when the component mounts
+    fetch("http://localhost:8000/vibratering/vibratering", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setVibrateRingOn(data.isVibrateRingOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Vibrate on Ring:", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+  // 2. vibrate on silent slider
+  const [isVibrateSilentOn, setVibrateSilentOn] = useState(false);
+  const toggleVibrateSilent = () => {
+    setVibrateSilentOn(!isVibrateSilentOn);
+    sendSilentToServer(!isVibrateSilentOn);
+  };
+
+
+
+  const sendSilentToServer = async (data) => {
+    fetch("http://localhost:8000/vibratesilent/vibratesilent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isVibrateSilentOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    // Fetch the Scheduled setting from the server when the component mounts
+    fetch("http://localhost:8000/vibratesilent/vibratesilent", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setVibrateSilentOn(data.isVibrateSilentOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Vibrate on Silent:", error);
+      });
+  }, []);
+
+
+
+
+
 
   // 3. slider for sound
   const [sliderValue, setSliderValue] = useState(50); // Initial slider value
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
+   
   };
 
   // 4. change with button slider
-  const [isChangeWithButtonOn, setChangeWithButtontOn] = useState(false);
+  const [isChangeWithButtonOn, setChangeWithButtonOn] = useState(false);
   const toggleChangeWithButton = () => {
-    setChangeWithButtontOn(!isChangeWithButtonOn);
+    setChangeWithButtonOn(!isChangeWithButtonOn);
+    sendbuttonToServer(!isChangeWithButtonOn);
   };
+
+
+  const sendbuttonToServer = async (data) => {
+    fetch("http://localhost:8000/changebutton/changebutton", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isChangeWithButtonOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    // Fetch the Scheduled setting from the server when the component mounts
+    fetch("http://localhost:8000/changebutton/changebutton", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setChangeWithButtonOn(data.isChangeWithButtonOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Vibrate on Silent:", error);
+      });
+  }, []);
+
+
+
 
   // 5. keyboard clicks slider
-  const [isKeyboardClicks, setKeyboardClicksOn] = useState(false);
+  const [isKeyboardClicksOn, setKeyboardClicksOn] = useState(false);
   const toggleKeyboardClicks = () => {
-    setKeyboardClicksOn(!isKeyboardClicks);
+    setKeyboardClicksOn(!isKeyboardClicksOn);
+    sendKeyboardToServer(!isKeyboardClicksOn);
   };
+
+
+
+  const sendKeyboardToServer = async (data) => {
+    fetch("http://localhost:8000/keyboard/keyboard", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isKeyboardClicksOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    // Fetch the Keyboard Clicks setting from the server when the component mounts
+    fetch("http://localhost:8000/keyboard/keyboard", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setKeyboardClicksOn(data.isKeyboardClicksOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Keyboard Clicks:", error);
+      });
+  }, []);
+
+
+
+
+
+
 
   // 6. lock sound slider
-  const [isLockSound, setLockSoundOn] = useState(false);
+  const [isLockSoundOn, setLockSoundOn] = useState(false);
   const toggleLockSound = () => {
-    setLockSoundOn(!isLockSound);
+    setLockSoundOn(!isLockSoundOn);
+    sendlocksoundToServer(!isLockSoundOn);
   };
 
-  // 7. System hapticsslider
-  const [isSystemHaptics, setSystemHapticstOn] = useState(false);
-  const toggleSystemHaptics = () => {
-    setSystemHapticstOn(!isSystemHaptics);
+
+
+  const sendlocksoundToServer = async (data) => {
+    fetch("http://localhost:8000/locksound/locksound", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isLockSoundOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
+
+
+  useEffect(() => {
+    // Fetch the Lock Sound On setting from the server when the component mounts
+    fetch("http://localhost:8000/locksound/locksound", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setLockSoundOn(data.isLockSoundOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Keyboard Clicks:", error);
+      });
+  }, []);
+
+
+
+
+
+
+  // 7. System hapticsslider
+  const [isSystemHapticsOn, setSystemHapticsOn] = useState(false);
+  const toggleSystemHaptics = () => {
+    setSystemHapticsOn(!isSystemHapticsOn);
+    sendsystemToServer(!isSystemHapticsOn);
+  };
+
+  const sendsystemToServer = async (data) => {
+    fetch("http://localhost:8000/system/system", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isSystemHapticsOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    // Fetch the Lock Sound On setting from the server when the component mounts
+    fetch("http://localhost:8000/system/system", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setSystemHapticsOn(data.isSystemHapticsOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Keyboard Clicks:", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -77,7 +326,7 @@ function Sound_1() {
         <div className="Screen_View_Row">
           <span className="Button_Click" style={{ marginTop: "10px" }}>
             {" "}
-            Vibrate on Rink
+            Vibrate on Ring
           </span>
           <span style={{ marginTop: "5px", marginRight: "10px" }}>
             <label className="switch">
@@ -103,7 +352,7 @@ function Sound_1() {
               <input
                 type="checkbox"
                 onChange={toggleVibrateSilent}
-                checked={isVibrateSilent}
+                checked={isVibrateSilentOn}
               />
               <span className="slider round"></span>
             </label>
@@ -330,7 +579,7 @@ function Sound_1() {
         <div id="Blocks" style={{ height: "83px", marginTop: "5px" }}>
           <div className="Screen_View_Row">
             <span className="Button_Click" style={{ marginTop: "10px" }}>
-              KeyBoards Clicks
+              KeyBoard Clicks
             </span>
 
             <span style={{ marginTop: "5px", marginRight: "10px" }}>
@@ -338,7 +587,7 @@ function Sound_1() {
                 <input
                   type="checkbox"
                   onChange={toggleKeyboardClicks}
-                  checked={isKeyboardClicks}
+                  checked={isKeyboardClicksOn}
                 />
                 <span className="slider round"></span>
               </label>
@@ -357,7 +606,7 @@ function Sound_1() {
                 <input
                   type="checkbox"
                   onChange={toggleLockSound}
-                  checked={isLockSound}
+                  checked={isLockSoundOn}
                 />
                 <span className="slider round"></span>
               </label>
@@ -378,7 +627,7 @@ function Sound_1() {
                 <input
                   type="checkbox"
                   onChange={toggleSystemHaptics}
-                  checked={isSystemHaptics}
+                  checked={isSystemHapticsOn}
                 />
                 <span className="slider round"></span>
               </label>

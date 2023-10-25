@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import L from "../images/L.jpg";
@@ -18,7 +18,7 @@ function Wifi_1() {
   };
 
   const sendDataToServer = async (data) => {
-    fetch("http://localhost:8000/wifi/WiFi", {
+    fetch("http://localhost:8000/wifi", {
           method: "POST",
           headers: {
                      "Content-Type": "application/json",
@@ -33,6 +33,21 @@ function Wifi_1() {
     console.error("Error sending data:", error);
  });
 };
+
+useEffect(() => {
+  // Fetch the WiFi setting from the server when the component mounts
+  fetch("http://localhost:8000/wifi", {
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Set the initial state based on the response
+      setWiFiOn(data.isWiFiOn);
+    })
+    .catch((error) => {
+      console.error("Error fetching Wi-Fi:", error);
+    });
+}, []);
 
 
 

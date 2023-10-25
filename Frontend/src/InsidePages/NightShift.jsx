@@ -1,18 +1,103 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function NightShift() {
   const navigate = useNavigate();
 
+
+
+
+
   const [isScheduledOn, setScheduledOn] = useState(false);
-  const toggleScheduled = () => {
+  const toggleScheduled = () => {   
     setScheduledOn(!isScheduledOn);
+    sendScheduledToServer(!isScheduledOn);
+    
   };
+
+  const sendScheduledToServer = async (data) => {
+    fetch("http://localhost:8000/scheduled/scheduled", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isScheduledOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+  useEffect(() => {
+    // Fetch the Scheduled setting from the server when the component mounts
+    fetch("http://localhost:8000/scheduled/scheduled", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setScheduledOn(data.isScheduledOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Airplane Mode:", error);
+      });
+  }, []);
+
+
+
 
   const [isManuallyOn, setManuallyOn] = useState(false);
   const toggleManually = () => {
     setManuallyOn(!isManuallyOn);
   };
+  //   sendManuallyToServer(!isManuallyOn); 
+  // };
+
+
+
+  // const sendManuallyToServer = async (data) => {
+  //   fetch("http://localhost:8000/manually/manually", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ isManuallyOn: data }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log("Data sent to the server:", data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error sending data:", error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   // Fetch the Scheduled setting from the server when the component mounts
+  //   fetch("http://localhost:8000/manually/manually", {
+  //     method: "GET",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Set the initial state based on the response
+  //       setManuallyOn(data.isManuallyOn);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching Airplane Mode:", error);
+  //     });
+  // }, []);
+
+
+
+
+
+
+
+
 
   //    slider for sound
   const [sliderValue, setSliderValue] = useState(50); // Initial slider value

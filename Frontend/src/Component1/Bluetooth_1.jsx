@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Bluetooth_1() {
@@ -11,7 +11,7 @@ function Bluetooth_1() {
   };
 
   const sendDataToServer = async (data) => {
-    fetch("http://localhost:8000/bluetooth/bluetooth", {
+    fetch("http://localhost:8000/bluetooth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,6 +26,22 @@ function Bluetooth_1() {
         console.error("Error sending data:", error);
       });
   };
+
+  useEffect(() => {
+    // Fetch the Airplane Mode setting from the server when the component mounts
+    fetch("http://localhost:8000/bluetooth", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setBluetoothOn(data.isBluetoothOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Airplane Mode:", error);
+      });
+  }, []);
+
 
   return (
     <div>
