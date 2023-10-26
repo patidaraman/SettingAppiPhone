@@ -219,6 +219,22 @@ router.post("/automatic", async (req, res) => {
       res.status(500).send("Internal Server Error");
     }
   });
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+  
   
   // Get the selected auto-lock time
   router.get("/autolock", async (req, res) => {
@@ -234,6 +250,62 @@ router.post("/automatic", async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     }
   });
+
+
+
+
+
+
+
+
+   // Text Size
+
+   router.post('/textsize', async (req, res) => {
+    try {
+      const { size } = req.body;
+      console.log(req.body)
+      let textSettings = await DBModle.findOne();
+  
+      if (!textSettings) {
+        textSettings = new DBModle({TextSize: size });
+      } else {
+        textSettings.TextSize = size;
+      }
+      await textSettings.save();
+      res.json({ size: textSettings.TextSize });
+    } catch (error) {
+      console.error('Error updating text size:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+
+ 
+
+
+  // Get the current text size
+router.get('/textsize', async (req, res) => {
+  try {
+    const textSettings= await DBModle.findOne();
+    if(textSettings){
+      
+        res.json({ size: textSettings ? textSettings.size : 16 }); // Return the text size or a default value
+   } else {
+             res.status(404).json({ error: "Auto-Lock time not found" });
+          }
+  } catch (error) {
+    console.error('Error fetching text size:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+
+
+
+
+
+
 
 
 

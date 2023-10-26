@@ -31,9 +31,8 @@ airplaneRouter.post("/", async (req, res) => {
 
       // Update the hotspot state
       existingRecord.isAirplaneModeOn = isAirplaneModeOn;
-
+      
       await existingRecord.save();
-
       res.json(existingRecord);
   } catch (error) {
       console.error('Error updating Hotspot setting:', error);

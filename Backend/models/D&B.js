@@ -5,6 +5,7 @@ const DandBSchema = new mongoose.Schema({
 
          isAutomaticOn:{ type:Boolean, default:false,},
          isRaisetoWakeOn:{type:Boolean,default:false,},
+         brightness: { type: Number, default: 80 },
    
      
                      isScheduledOn:{type:Boolean,default:false,},
@@ -14,7 +15,8 @@ const DandBSchema = new mongoose.Schema({
 
                    
       isBoldTextOn:{ type:Boolean, default:false},
-          TextSize:{ type:Number,default:50,},
+          TextSize:{ type:Number,default:20,},
+         
        
 
   

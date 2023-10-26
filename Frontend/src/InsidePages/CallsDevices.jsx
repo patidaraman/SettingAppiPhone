@@ -1,18 +1,121 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function CallsDevices() {
   const navigate = useNavigate();
 
-  const [isCallsDevicesOn, setCallsDevicesOn] = useState(false);
-  const toggleCallsDevices = () => {
-    setCallsDevicesOn(!isCallsDevicesOn);
+  const [isAllowCallsonOtherDevicesOn, setAllowCallsonOtherDevicesOn] = useState(false);
+  const toggleAllowCallsonOtherDevices = () => {
+    setAllowCallsonOtherDevicesOn(!isAllowCallsonOtherDevicesOn);
+    sendotherDToServer(!isAllowCallsonOtherDevicesOn);
   };
 
-  const [isMacOn, setMacOn] = useState(false);
-  const toggleMac = () => {
-    setMacOn(!isMacOn);
+  const sendotherDToServer = async (data) => {
+    fetch("http://localhost:8000/other/other", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isAllowCallsonOtherDevicesOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/other/other", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setAllowCallsonOtherDevicesOn(data.isAllowCallsonOtherDevicesOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Limit IP Adderss Tracking On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [isAllowCallsOnMacBookOn, setAllowCallsOnMacBookOn] = useState(false);
+  const toggleAllowCallsOnMacBook = () => {
+    setAllowCallsOnMacBookOn(!isAllowCallsOnMacBookOn);
+    sendMacToServer(!isAllowCallsOnMacBookOn);
+  };
+
+  const sendMacToServer = async (data) => {
+    fetch("http://localhost:8000/mac/mac", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isAllowCallsOnMacBookOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/mac/mac", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setAllowCallsOnMacBookOn(data.isAllowCallsOnMacBookOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Allow Calls On MacBook On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -36,8 +139,8 @@ function CallsDevices() {
             <label className="switch">
               <input
                 type="checkbox"
-                onChange={toggleCallsDevices}
-                checked={isCallsDevicesOn}
+                onChange={toggleAllowCallsonOtherDevices}
+                checked={isAllowCallsonOtherDevicesOn}
               />
               <span className="slider round"></span>
             </label>
@@ -62,7 +165,7 @@ function CallsDevices() {
 
           <span className="Toggle_Place">
             <label className="switch">
-              <input type="checkbox" onChange={toggleMac} checked={isMacOn} />
+              <input type="checkbox" onChange={toggleAllowCallsOnMacBook} checked={isAllowCallsOnMacBookOn} />
               <span className="slider round"></span>
             </label>
           </span>

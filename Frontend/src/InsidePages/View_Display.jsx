@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { navigate, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import SmallIcon from '../VideoAnimated/SmallIcon.mp4'
 import LargeIcon from '../VideoAnimated/LargeIcon.mp4'
 
@@ -10,9 +10,29 @@ function View_Display() {
     
     const [selectedButton, setSelectedButton] = useState(null);
 
+
     const handleButtonClick = (button) => {
       setSelectedButton(button);
+      
     };
+   
+  
+    // ... the rest of your code
+  
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
       
         
     

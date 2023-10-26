@@ -1,13 +1,68 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function CallingWifi() {
   const navigate = useNavigate();
 
-  const [isCallsDevicesOn, setCallsDevicesOn] = useState(false);
-  const toggleCallsDevices = () => {
-    setCallsDevicesOn(!isCallsDevicesOn);
+  const [isCallingWiFiOn, setCallingWiFiOn] = useState(false);
+  const toggleCallingWiFi= () => {
+    setCallingWiFiOn(!isCallingWiFiOn);
+    sendcallingToServer(!isCallingWiFiOn);
   };
+
+
+  const sendcallingToServer = async (data) => {
+    fetch("http://localhost:8000/calling/calling", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isCallingWiFiOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/calling/calling", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setCallingWiFiOn(data.isCallingWiFiOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Calling WiFi On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <div className="top" style={{ gap: "18px" }}>
@@ -32,8 +87,8 @@ function CallingWifi() {
             <label className="switch">
               <input
                 type="checkbox"
-                onChange={toggleCallsDevices}
-                checked={isCallsDevicesOn}
+                onChange={toggleCallingWiFi}
+                checked={isCallingWiFiOn}
               />
               <span className="slider round"></span>
             </label>

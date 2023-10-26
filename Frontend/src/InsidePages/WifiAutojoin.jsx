@@ -3,14 +3,39 @@ import { useNavigate } from 'react-router-dom'
 
 function WifiAutojoin() {
     const navigate = useNavigate()
-
-
-
-    const options = ["Never", "Ask to Join ", "Automatic"];
     const [selectedOption, setSelectedOption] = useState(null);
+
+
+
+    const options = ["Never", "AskToJoin", "Automatic"];
+
+
     const handleOptionClick = (option) => {
-        setSelectedOption(option === selectedOption ? null : option);
+        setSelectedOption(option);
+        updateAutoJoinHotspot(option);
       };
+
+      const updateAutoJoinHotspot = (option) => {
+        fetch('http://localhost:8000/autojoin/autojoin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ autoJoinHotspot: option }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log('Auto-Join Hotspot setting updated:', data.autoJoinHotspot);
+          })
+          .catch((error) => {
+            console.error('Error updating Auto-Join Hotspot setting:', error);
+          });
+      };
+
+
+
+
+
   return (
     <div>
         

@@ -31,6 +31,7 @@ function Display_1() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Data sent to the server:", data);
+         setBrightness(data.brightnessLevel);
       })
       .catch((error) => {
         console.error("Error sending data to the server:", error);
@@ -46,6 +47,28 @@ function Display_1() {
     height: "100%",
     zIndex: 999,
   };
+
+
+  useEffect(() => {
+    // Fetch the brightness level from the server when the component mounts
+    fetch("http://localhost:8000/brightness", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setBrightness(data.brightnessLevel);
+      })
+      .catch((error) => {
+        console.error("Error fetching brightness level:", error);
+      });
+  }, []);
+
+
+
+
+
+
+
 
 
 

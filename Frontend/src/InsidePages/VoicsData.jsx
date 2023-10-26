@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { navigate, useNavigate } from "react-router-dom";
 
 // CSS code 604
@@ -6,10 +6,58 @@ import { navigate, useNavigate } from "react-router-dom";
 function VoicsData() {
   const navigate = useNavigate();
 
-  const [isVolteOn, setVoltehOn] = useState(false);
-  const toggleVolte = () => {
-    setVoltehOn(!isVolteOn);
+  const [isVoLTEOn, setVoLTEOn] = useState(false);
+  const toggleVoLTE = () => {
+    setVoLTEOn(!isVoLTEOn);
+    sendvolteToServer(!isVoLTEOn)
   };
+
+  const sendvolteToServer = async (data) => {
+    fetch("http://localhost:8000/volte/volte", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isVoLTEOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/volte/volte", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setVoLTEOn(data.isVoLTEOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching VoLTE On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const options = ["4G", "3G"];
   const [selectedOption, setSelectedOption] = useState(null);
@@ -73,8 +121,8 @@ function VoicsData() {
             <label className="switch">
               <input
                 type="checkbox"
-                onChange={toggleVolte}
-                checked={isVolteOn}
+                onChange={toggleVoLTE}
+                checked={isVoLTEOn}
               />
               <span className="slider round"></span>
             </label>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function SimPin() {
@@ -7,7 +7,67 @@ function SimPin() {
   const [isSimPinOn, setSimPinOn] = useState(false);
   const toggleSimPin = () => {
     setSimPinOn(!isSimPinOn);
+
+    sendsimToServer(!isSimPinOn);
+ 
   };
+
+  const sendsimToServer = async (data) => {
+    fetch("http://localhost:8000/sim/sim", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isSimPinOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/sim/sim", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setSimPinOn(data.isSimPinOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Network Selection On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>

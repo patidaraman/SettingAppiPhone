@@ -12,6 +12,8 @@ function Wifi_1() {
   
 
   const [isWiFiOn, setWiFiOn] = useState(false);
+  const [autoJoinHotspot , setAutoJoinHotspot] = useState("Never");
+
   const toggleWiFi = () => {
     setWiFiOn(!isWiFiOn);
     sendDataToServer(!isWiFiOn);
@@ -48,6 +50,25 @@ useEffect(() => {
       console.error("Error fetching Wi-Fi:", error);
     });
 }, []);
+
+
+useEffect(() => {
+fetch('http://localhost:8000/wifi/autojoin', {
+  method: 'GET',
+})
+  .then((response) => response.json())
+  .then((data) => {
+    
+    // Set the "Auto-Join Hotspot" setting based on the response
+    setAutoJoinHotspot(data.autoJoinHotspot);
+  })
+  .catch((error) => {
+    console.error('Error fetching Auto-Join Hotspot setting:', error);
+  });
+}, []);
+
+
+
 
 
 

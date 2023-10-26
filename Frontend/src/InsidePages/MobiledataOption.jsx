@@ -1,41 +1,149 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function MobiledataOption() {
   const navigate = useNavigate();
 
-  const [isDataOptionOn, setDataOptionOn] = useState(false);
-  const toggleDataOption = () => {
-    setDataOptionOn(!isDataOptionOn);
-    // sendDataToServer(!isDataOptionOn);
+  const [isDataRoamingOn, setDataRoamingOn] = useState(false);
+  const toggleDataRoaming= () => {
+    setDataRoamingOn(!isDataRoamingOn);
+    sendDataToServer(!isDataRoamingOn);
   };
 
-  // const sendDataToServer = async (data) => {
-  //   fetch("http://localhost:8000/MobileData/dataoption", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ isDataOptionOn: data }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log("Data sent to the server:", data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error sending data:", error);
-  //     });
-  // };
+  const sendDataToServer = async (data) => {
+    fetch("http://localhost:8000/dataroaming/dataroaming", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isDataRoamingOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+
+  useEffect(() => {
+    // Fetch the Scheduled setting from the server when the component mounts
+    fetch("http://localhost:8000/dataroaming/dataroaming", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setDataRoamingOn(data.isDataRoamingOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Airplane Mode:", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
 
   const [isLowDataModeOn, setLowDataModeOn] = useState(false);
   const toggleLowDataMode = () => {
     setLowDataModeOn(!isLowDataModeOn);
+    sendlowDataToServer(!isLowDataModeOn);
   };
 
-  const [isIPOn, setIPOn] = useState(false);
-  const toggleIP = () => {
-    setIPOn(!isIPOn);
+
+
+  const sendlowDataToServer = async (data) => {
+    fetch("http://localhost:8000/lowdata/lowdata", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isLowDataModeOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
   };
+
+  useEffect(() => {
+    // Fetch the Low Data Mode On setting from the server when the component mounts
+    fetch("http://localhost:8000/lowdata/lowdata", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setLowDataModeOn(data.isLowDataModeOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Low Data Mode On :", error);
+      });
+  }, []);
+
+
+
+
+
+  const [isLimitIPAddressTrackingOn, setLimitIPAddressTrackingOn] = useState(false);
+  const toggleLimitIPAddressTracking = () => {
+    setLimitIPAddressTrackingOn(!isLimitIPAddressTrackingOn);
+    sendIPToServer(!isLimitIPAddressTrackingOn);
+  };
+
+ const sendIPToServer = async (data) => {
+    fetch("http://localhost:8000/IP/IP", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isLimitIPAddressTrackingOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/IP/IP", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setLimitIPAddressTrackingOn(data.isLimitIPAddressTrackingOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Limit IP Adderss Tracking On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -60,8 +168,8 @@ function MobiledataOption() {
             <label className="switch">
               <input
                 type="checkbox"
-                onChange={toggleDataOption}
-                checked={isDataOptionOn}
+                onChange={toggleDataRoaming}
+                checked={isDataRoamingOn}
               />
               <span className="slider round"></span>
             </label>
@@ -116,7 +224,7 @@ function MobiledataOption() {
           </span>
           <span className="Toggle_Place">
             <label className="switch">
-              <input type="checkbox" onChange={toggleIP} checked={isIPOn} />
+              <input type="checkbox" onChange={toggleLimitIPAddressTracking} checked={isLimitIPAddressTrackingOn} />
               <span className="slider round"></span>
             </label>
           </span>

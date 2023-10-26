@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function NetworkSelection() {
@@ -7,7 +7,59 @@ function NetworkSelection() {
   const [isNetworkSelectionOn, setNetworkSelectionOn] = useState(false);
   const toggleNetworkSelection = () => {
     setNetworkSelectionOn(!isNetworkSelectionOn);
+    sendnetworkToServer(!isNetworkSelectionOn);
+ 
   };
+
+  const sendnetworkToServer = async (data) => {
+    fetch("http://localhost:8000/network/network", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isNetworkSelectionOn: data }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+      })
+      .catch((error) => {
+        console.error("Error sending data:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    
+    fetch("http://localhost:8000/network/network", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the initial state based on the response
+        setNetworkSelectionOn(data.isNetworkSelectionOn);
+      })
+      .catch((error) => {
+        console.error("Error fetching Network Selection On :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <div className="top" style={{ gap: "15px" }}>

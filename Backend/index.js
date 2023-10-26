@@ -46,7 +46,17 @@ server.use('/keyboard',shRouter);
 server.use('/locksound',shRouter);
 server.use('/system',shRouter);
 server.use('/autolock' , router);
-
+server.use('/dataroaming',mobiledataRouter);
+server.use('/lowdata',mobiledataRouter);
+server.use('/IP',mobiledataRouter);
+server.use('/textsize',router);
+server.use('/autojoin',wifiRouter);
+server.use('/network',mobiledataRouter);
+server.use('/volte',mobiledataRouter);
+server.use('/calling',mobiledataRouter);
+server.use('/other',mobiledataRouter);
+server.use('/mac',mobiledataRouter);
+server.use('/sim',mobiledataRouter);
 
 
 

@@ -47,11 +47,17 @@ import NPE from './InsidePages/NPE';
 
 
 
+
 function App() {
+
+
+
+  
   return (
     <>
     
     <Routes>
+   
     
     <Route path="/" Component={Setting}> </Route>
     <Route path="/Profile_1" Component={Profile_1}> </Route>
@@ -92,10 +98,10 @@ function App() {
     <Route path='/WifiAskother' Component={WifiAskother}></Route>
     <Route path='WifiAutojoin' Component={WifiAutojoin}></Route>
     <Route path='NPE' Component={NPE}></Route>
-    
+   
 
  </Routes>
-    
+ 
     
     </>
   );

@@ -22,14 +22,6 @@ wifiRouter.get("/", async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 wifiRouter.post("/", async (req, res) => {
   try {
       const { isWiFiOn } = req.body;
@@ -51,6 +43,40 @@ wifiRouter.post("/", async (req, res) => {
       res.status(500).send('Internal Server Error');
   }
 });
+
+
+
+wifiRouter.post("/autojoin", async (req, res) => {
+  try {
+    const { autoJoinHotspot } = req.body;
+    let setting = await WiFiModle.findOne();
+
+    if (!setting) {
+      setting = new WiFiModle({ autoJoinHotspot });
+    } else {
+      setting.autoJoinHotspot = autoJoinHotspot;
+    }
+
+    await setting.save();
+    res.json({ autoJoinHotspot: setting.autoJoinHotspot });
+  } catch (error) {
+    console.error("Error updating Auto-Join Hotspot setting:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+wifiRouter.get("/autojoin", async (req, res) => {
+  try {
+    const setting = await WiFiModle.findOne();
+    res.json({ autoJoinHotspot: setting ? setting.autoJoinHotspot : false });
+  } catch (error) {
+    console.error("Error fetching Auto-Join Hotspot setting:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
 
 
 module.exports = wifiRouter

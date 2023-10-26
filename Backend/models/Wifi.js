@@ -1,7 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const WiFiSchema = new mongoose.Schema({
-    isWiFiOn: Boolean,
-  });
-  const WiFi = mongoose.model("WiFi", WiFiSchema , "Wi-Fi");
-  module.exports=WiFi
+  isWiFiOn: {
+    type: Boolean,
+    default: false,
+  },
+  autoJoinHotspot: {
+    type: String,
+    enum: ["Never", "AskToJoin", "Automatic"],
+    default: "Never",
+  },
+});
+const WiFi = mongoose.model("WiFi", WiFiSchema, "Wi-Fi");
+module.exports = WiFi;
