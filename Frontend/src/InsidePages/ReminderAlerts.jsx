@@ -15,11 +15,36 @@ function ReminderAlerts(){
     const options = ["Opening (Default)", "Apex" ,"Beacom" ,"Bulletin" , "By The Seaside" ,
     "Chimes", "Circuit","Consetellation","Cosmic" ,"Crystel","Hilside","IIuminate","Night Owl",
     "Playtime","Presto","Radar","Radiate","Ripples","Sencha","Signal","Silk","Slow Rise","Stargaze" , "Summit" , "Twinkel" , "Uplift" , "Waves" ];
+
     const [selectedOption, setSelectedOption] = useState(null);
   
     const handleOptionClick = (option) => {
       setSelectedOption(option === selectedOption ? null : option);
+      sendSelectedReminderToServer(option);
     };
+
+    const sendSelectedReminderToServer = (selectedReminderAlerts) => {
+      fetch("http://localhost:8000/reminder/reminder", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({selectedReminderAlerts}),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Selected  Reminder Alerts sent to the server:", data);
+          setSelectedOption(selectedReminderAlerts); 
+        })
+        .catch((error) => {
+          console.error("Error sending data to the server:", error);
+        });
+    };
+
+
+
+
+
 
 
 
@@ -72,16 +97,22 @@ function ReminderAlerts(){
                               </div>
 
    
-                     <div id="blocks" style={{height:"940px",background:"#2a2929f8" , borderRadius:"8px"}}>
+                     <div id="blocks" style={{height:"1075px",background:"#2a2929f8" , borderRadius:"8px"}}>
 
                             <div className="option-list">
 
-                                        <ul>
+                                        <ul style={{marginLeft:"40px"}}>
                                                {options.map((option, index) => (
                                             <li
                                                  key={index}
                                                  onClick={() => handleOptionClick(option)}
                                                  className={selectedOption === option ? "selected" : ""}
+                                                 style={{
+                                                  borderBottom: "1px solid gray", // Add a border between options
+                                                  padding: "10px 0",
+                                                  display: "flex",
+                                                  justifyContent: "space-between",
+                                                }}
                                             >
 
                                                  {option}

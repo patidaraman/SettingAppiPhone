@@ -220,26 +220,12 @@ router.post("/automatic", async (req, res) => {
     }
   });
 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-  
   
   // Get the selected auto-lock time
   router.get("/autolock", async (req, res) => {
     try {
       const existingRecord = await DBModle.findOne();
+    
       if (existingRecord) {
         res.json({ selectedTime: existingRecord.selectedTime });
       } else {

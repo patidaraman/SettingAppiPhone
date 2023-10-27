@@ -14,6 +14,8 @@ const shRouter = require("./Routes/SoundRoutes");
 
 
 
+
+
 const server = express();
 
 const port = 8000;
@@ -57,8 +59,14 @@ server.use('/calling',mobiledataRouter);
 server.use('/other',mobiledataRouter);
 server.use('/mac',mobiledataRouter);
 server.use('/sim',mobiledataRouter);
-
-
+server.use('/sound',shRouter);
+server.use('/ringtone',shRouter);
+server.use('/texttone',shRouter);
+server.use('/voicemail',shRouter);
+server.use('/calendar',shRouter);
+server.use('/reminder',shRouter);
+server.use('/airdrop',shRouter);
+server.use('/networkv',mobiledataRouter);
 
 
 

@@ -99,11 +99,81 @@ function Sound_1() {
 
 
   // 3. slider for sound
-  const [sliderValue, setSliderValue] = useState(50); // Initial slider value
+  const [sliderValue, setSliderValue] = useState(50);
+   
   const handleSliderChange = (event) => {
-    setSliderValue(event.target.value);
+    const newSoundValue = event.target.value;
+    sendSoundValueToServer( newSoundValue);
+    setSliderValue( newSoundValue);
    
   };
+
+
+  const sendSoundValueToServer = (newSoundValue) => {
+    fetch("http://localhost:8000/sound/sound", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ sliderValue: newSoundValue }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Data sent to the server:", data);
+         setSliderValue(data.Level);
+      })
+      .catch((error) => {
+        console.error("Error sending data to the server:", error);
+      });
+  };
+
+
+  useEffect(() => {
+    // Fetch the brightness level from the server when the component mounts
+    fetch("http://localhost:8000/sound/sound", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSliderValue(data.SoundLevel);
+      })
+      .catch((error) => {
+        console.error("Error fetching  sound value :", error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // 4. change with button slider
   const [isChangeWithButtonOn, setChangeWithButtonOn] = useState(false);
@@ -295,6 +365,127 @@ function Sound_1() {
 
 
 
+
+
+  const [selectedRingtone, setSelectedRingtone] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected ringtone from the server when the component mounts
+  fetch("http://localhost:8000/ringtone/ringtone")
+    .then((response) => response.json())
+    .then((data) => {
+      setSelectedRingtone(data.selectedRingtone);
+    })
+    .catch((error) => {
+      console.error("Error fetching selected texttone:", error);
+    });
+}, []);
+
+
+
+const [selectedTexttone, setSelectedTexttone] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected texttone alert  from the server when the component mounts
+  fetch("http://localhost:8000/texttone/texttone")
+    .then((response) => response.json())
+    .then((data) => {
+      setSelectedTexttone(data.selectedTexttone);
+    })
+    .catch((error) => {
+      console.error("Error fetching selected texttone:", error);
+    });
+}, []);
+
+
+
+
+
+
+const [selectedNewVoicemail, setSelectedNewVoicemail] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected voicemail alert  from the server when the component mounts
+  fetch("http://localhost:8000/voicemail/voicemail")
+    .then((response) => response.json())
+    .then((data) => {
+      setSelectedNewVoicemail(data.selectedNewVoicemail);
+    })
+    .catch((error) => {
+      console.error("Error fetching  New Voice mail:", error);
+    });
+}, []);
+
+
+
+
+
+const [selectedCalendarAlerts, setSelectedCalendarAlerts] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected calender alert  from the server when the component mounts
+  fetch("http://localhost:8000/calendar/calendar")
+    .then((response) => response.json())
+    .then((data) => {
+      setSelectedCalendarAlerts(data.selectedCalendarAlerts);
+    })
+    .catch((error) => {
+      console.error("Error fetching  selected Calendar Alerts:", error);
+    });
+}, []);
+
+
+
+
+
+
+
+
+const [selectedReminderAlerts, setSelectedReminderAlerts] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected reminder alerts  from the server when the component mounts
+  fetch("http://localhost:8000/reminder/reminder")
+    .then((response) => response.json())
+    .then((data) => {
+      setSelectedReminderAlerts(data.selectedReminderAlerts);
+    })
+    .catch((error) => {
+      console.error("Error fetching  selected Calendar Alerts:", error);
+    });
+}, []);
+
+
+
+
+
+
+
+
+
+
+
+
+const [selectedAirdropAlerts, setSelectedAirdropAlerts] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected Airdrop Alerts from the server when the component mounts
+  fetch("http://localhost:8000/airdrop/airdrop")
+    .then((response) => response.json())
+    .then((data) => {
+      setSelectedAirdropAlerts(data.selectedAirdropAlerts);
+    })
+    .catch((error) => {
+      console.error("Error fetching  selected Airdrop Alerts:", error);
+    });
+}, []);
+
+
+
+
+
+
+
   return (
     <div>
       {/* Sound Page Heading  */}
@@ -459,9 +650,9 @@ function Sound_1() {
           <span className="paragraph">SOUND AND VIBRATION PATTERNS</span>
         </div>
 
-        <div id="Blocks" style={{ height: "245px" }}>
+        <div id="Blocks" style={{ height: "240px" }}>
           <div className="Screen_View_Row">
-            <div className="Button_Click" onClick={() => navigate("/Ringtone")}>
+            <div className="Button_Click" onClick={() => navigate("/Ringtone")} style={{marginTop:"5px"}}>
               Ringtone
             </div>
             <div
@@ -469,7 +660,11 @@ function Sound_1() {
               onClick={() => navigate("/Ringtone")}
             >
               {" "}
-              Opening
+              {selectedRingtone !== null ? (
+                                     <div> {selectedRingtone}</div>) : (
+                                     <div>No ringtone selected</div>
+                                    )}
+                                  
             </div>
             <span className="Arrow_Icon" style={{ marginTop: "5px" }}>
               {">"}
@@ -486,7 +681,10 @@ function Sound_1() {
               style={{ marginRight: "10px", marginTop: "5px", color: "gray" }}
               onClick={() => navigate("/TextTone")}
             >
-              Note
+               {selectedTexttone !== null ? (
+                                     <div> {selectedTexttone}</div>) : (
+                                     <div>No ringtone selected</div>
+                                    )}
             </div>
             <span className="Arrow_Icon" style={{ marginTop: "5px" }}>
               {">"}
@@ -506,7 +704,10 @@ function Sound_1() {
               onClick={() => navigate("/NewVoicemail")}
             >
               {" "}
-              Apex
+              {selectedNewVoicemail !== null ? (
+                                     <div> {selectedNewVoicemail}</div>) : (
+                                     <div>No ringtone selected</div>
+                                    )}
             </div>
             <span className="Arrow_Icon" style={{ marginTop: "5px" }}>
               {">"}
@@ -527,7 +728,11 @@ function Sound_1() {
               onClick={() => navigate("/CalenderAlerts")}
             >
               {" "}
-              Chord
+               {selectedCalendarAlerts !== null ? (
+                                     <div> {selectedCalendarAlerts}</div>) : (
+                                     <div>No ringtone selected</div>
+                                    )}
+             
             </div>
             <span className="Arrow_Icon" style={{ marginTop: "5px" }}>
               {">"}
@@ -548,7 +753,10 @@ function Sound_1() {
               onClick={() => navigate("/ReminderAlerts")}
             >
               {" "}
-              Chord
+              {selectedReminderAlerts !== null ? (
+                                     <div> {selectedReminderAlerts}</div>) : (
+                                     <div>No ringtone selected</div>
+                                    )}
             </div>
             <span className="Arrow_Icon" style={{ marginTop: "5px" }}>
               {">"}
@@ -566,7 +774,10 @@ function Sound_1() {
               onClick={() => navigate("/AirDrop")}
             >
               {" "}
-              Pulse
+              {selectedAirdropAlerts !== null ? (
+                                     <div> {selectedAirdropAlerts}</div>) : (
+                                     <div>No ringtone selected</div>
+                                    )}
             </div>
             <span className="Arrow_Icon" style={{ marginTop: "5px" }}>
               {">"}

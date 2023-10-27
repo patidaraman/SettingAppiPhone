@@ -13,15 +13,37 @@ function NewVoicemail(){
     const navigate=useNavigate()
 
 
-    const options = ["Opening (Default)", "Apex" ,"Beacom" ,"Bulletin" , "By The Seaside" ,
-                      "Chimes", "Circuit","Consetellation","Cosmic" ,"Crystel","Hilside","IIuminate","Night Owl",
-                      "Playtime","Presto","Radar","Radiate","Ripples","Sencha","Signal","Silk","Slow Rise","Stargaze" , "Summit" , "Twinkel" , "Uplift" , "Waves" ];
+    const options = ["Note", "Aurora" ,"Bamboo" ,"Chord" , "Circles" ,
+                      "Complete", "Hello","Input","Keys" ,"Popcorn","Pulse","Synth"]
 
     const [selectedOption, setSelectedOption] = useState(null);
   
     const handleOptionClick = (option) => {
       setSelectedOption(option === selectedOption ? null : option);
+      sendSelectedVoicemailToServer(option);
     };
+
+
+    const sendSelectedVoicemailToServer = (selectedNewVoicemail) => {
+      fetch("http://localhost:8000/voicemail/voicemail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedNewVoicemail }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Selected New Voice mail sent to the server:", data);
+          setSelectedOption(selectedNewVoicemail); // Update the local state
+        })
+        .catch((error) => {
+          console.error("Error sending data to the server:", error);
+        });
+    };
+
+
+
 
 
 
@@ -70,20 +92,26 @@ function NewVoicemail(){
 
                           <br/>  
                     <div style={{marginBottom:"-12px"}}>
-                              <span className='paragraph'>RINGTONES</span> 
+                              <span className='paragraph'>ALERT TONES</span> 
                               </div>
 
    
-                     <div id="blocks" style={{height:"940px",background:"#2a2929f8" , borderRadius:"8px"}}>
+                     <div id="blocks" style={{height:"474px",background:"#2a2929f8" , borderRadius:"8px"}}>
 
                             <div className="option-list">
 
-                                        <ul>
+                                        <ul style={{marginLeft:"40px"}}>
                                                {options.map((option, index) => (
                                             <li
                                                  key={index}
                                                  onClick={() => handleOptionClick(option)}
                                                  className={selectedOption === option ? "selected" : ""}
+                                                 style={{
+                                                  borderBottom: "1px solid gray", // Add a border between options
+                                                  padding: "10px 0",
+                                                  display: "flex",
+                                                  justifyContent: "space-between",
+                                                }}
                                             >
 
                                                  {option}

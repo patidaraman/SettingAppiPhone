@@ -7,6 +7,13 @@ const SandHSchema = new mongoose.Schema({
   isKeyboardClicksOn:{type:Boolean , default:false},
   isLockSoundOn:{type:Boolean , default:false},
   isSystemHapticsOn:{type:Boolean , default:false},
+  soundLevel: { type: Number, default: 10 },
+  selectedRingtone: {type:String},
+  selectedTexttone:{type:String},
+  selectedNewVoicemail:{type:String},
+  selectedCalendarAlerts:{type:String},
+  selectedReminderAlerts:{type:String},
+  selectedAirdropAlerts:{type:String},
 });
 
 const SHModle = mongoose.model("SandH", SandHSchema, "Sound & Haptics");

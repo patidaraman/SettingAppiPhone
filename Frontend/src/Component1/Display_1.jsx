@@ -5,6 +5,7 @@ import LM from "../images/LM.jpeg";
 import DM from "../images/DM.jpeg";
 
 function Display_1() {
+  
   const navigate = useNavigate();
 
   const [selectedButton, setSelectedButton] = useState(null);
@@ -373,7 +374,7 @@ function Display_1() {
           </div>
           <div className=" ThreeInRow" onClick={() => navigate("/NightShift")}>
             {" "}
-            Off
+          
           </div>
           <span className=" ThreeInRow">{">"}</span>
         </div>
@@ -385,14 +386,17 @@ function Display_1() {
           <div className="Screen_View_Row">
             <div
               className="Button_Click"
-              style={{ marginTop: "12px" }}
+              style={{ marginTop: "12px", marginRight:"30px" }}
               onClick={() => navigate("/AutoLock")}
             >
               Auto-Lock{" "}
             </div>
-            <div className=" ThreeInRow" onClick={() => navigate("/AutoLock")}>
+            <div className=" ThreeInRow" onClick={() => navigate("/AutoLock")}  >
               {" "}
+             
               {selectedAutoLockTime}
+             
+             
             </div>
             <span className=" ThreeInRow">{">"}</span>
           </div>
@@ -431,7 +435,7 @@ function Display_1() {
             </div>
             <div className=" ThreeInRow" onClick={() => navigate("/TextSize")}>
               {" "}
-              Never
+             
             </div>
             <span className=" ThreeInRow">{">"}</span>
           </div>

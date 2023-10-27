@@ -11,7 +11,10 @@ const DandBSchema = new mongoose.Schema({
                      isScheduledOn:{type:Boolean,default:false,},
                      ColorTemperature:{type:Number,default:50,},  
                      isManually:{type:Boolean , default:false},
-                     selectedAutoLockTime:{selectedTime: String },
+                     selectedTime: {
+                        type: String,
+                        required: true,
+                      },
 
                    
       isBoldTextOn:{ type:Boolean, default:false},

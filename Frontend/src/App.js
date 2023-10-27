@@ -40,6 +40,7 @@ import AirDrop from './InsidePages/AirDrop';
 import WifiAskother from './InsidePages/WifiAskother';
 import WifiAutojoin from './InsidePages/WifiAutojoin';
 import NPE from './InsidePages/NPE';
+import DND from './InsidePages/DND';
 
 
 
@@ -98,6 +99,7 @@ function App() {
     <Route path='/WifiAskother' Component={WifiAskother}></Route>
     <Route path='WifiAutojoin' Component={WifiAutojoin}></Route>
     <Route path='NPE' Component={NPE}></Route>
+    <Route path='DND' Component={DND}></Route>
    
 
  </Routes>

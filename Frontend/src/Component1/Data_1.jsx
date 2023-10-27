@@ -150,7 +150,7 @@ function Data_1() {
             onClick={() => navigate("/CallingWifi")}
           >
             {" "}
-            Off{" "}
+            {" "}
           </div>
           <span className="Arrow_Icon"> {">"}</span>
         </div>
@@ -167,7 +167,7 @@ function Data_1() {
             onClick={() => navigate("/CallsDevices")}
           >
             {" "}
-            Nearby{" "}
+            {" "}
           </div>
           <span className="Arrow_Icon"> {">"}</span>
         </div>
