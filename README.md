@@ -52,17 +52,13 @@
            
 #5. Mobile Screenshoot 
 
+![main](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/f1c273ab-c8aa-4d4c-96ab-3c033504192b)
 
-![IMG_7697](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/0f6a3e2a-709e-4ccf-82c9-1cf21da6b149)
+![P](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/68bc50d4-12c3-4dcc-a367-adf2c74a6468)
 
-![IMG_7700](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/a9c07f02-55af-4cc5-ba77-9bbed94d83e8)
+![H](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/a72c831d-16db-4519-8055-d235346bf45c)
 
-![IMG_7698](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/37d6b47f-aadd-473b-907e-068042f91ea3)
-
-![IMG_7699](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/cc7ee499-dbdc-4624-94f2-07006d04d183)
-
-
-
+![A](https://github.com/patidaraman/SettingAppiPhone/assets/77402630/4c44d778-2c15-4b13-bfaf-c0463f1b27f4)
 
 
 #6 My Web Application video
