@@ -21,7 +21,38 @@ function AirDrop(){
   
     const handleOptionClick = (option) => {
       setSelectedOption(option === selectedOption ? null : option);
+      sendAirdropToServer(option);
     };
+
+    const sendAirdropToServer = (selectedAirdropAlerts) => {
+      fetch("http://localhost:8000/airdrop/airdrop", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({selectedAirdropAlerts}),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Selected  Airdrop Alerts sent to the server:", data);
+          setSelectedOption(selectedAirdropAlerts); 
+        })
+        .catch((error) => {
+          console.error("Error sending data to the server:", error);
+        });
+    };
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -74,16 +105,22 @@ function AirDrop(){
                               </div>
 
    
-                     <div id="blocks" style={{height:"940px",background:"#2a2929f8" , borderRadius:"8px"}}>
+                     <div id="blocks" style={{height:"1070px",background:"#2a2929f8" , borderRadius:"8px"}}>
 
                             <div className="option-list">
 
-                                        <ul>
+                                        <ul style={{marginLeft:"40px"}}>
                                                {options.map((option, index) => (
                                             <li
                                                  key={index}
                                                  onClick={() => handleOptionClick(option)}
                                                  className={selectedOption === option ? "selected" : ""}
+                                                 style={{
+                                                  borderBottom: "1px solid gray", // Add a border between options
+                                                  padding: "10px 0",
+                                                  display: "flex",
+                                                  justifyContent: "space-between",
+                                                }}
                                             >
 
                                                  {option}

@@ -140,6 +140,24 @@ function MobiledataOption() {
 
 
 
+const [selectedNetwork, setSelectedNetwork] = useState(null);
+
+useEffect(() => {
+  // Fetch the selected reminder alerts from the server when the component mounts
+  fetch("http://localhost:8000/networkv/networkv")
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.selectedNetwork) {
+        setSelectedNetwork(data.selectedNetwork);
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching selected network Alerts:", error);
+    });
+}, []);
+
+
+
 
 
 
@@ -180,7 +198,11 @@ function MobiledataOption() {
 
         <div className="Screen_View_Row" onClick={() => navigate("/VoicsData")}>
           <span className="Button_Click"> Voice & Data </span>
-          <div style={{ marginRight: "10px" }}> 4G</div>
+          <div style={{ marginRight: "10px" }}> 
+          {selectedNetwork !== null ? (
+                                     <div> {selectedNetwork}</div>) : (
+                                     <div>No network selected</div>
+                                    )}</div>
           <span className="Arrow_Icon"> {">"}</span>
         </div>
       </div>

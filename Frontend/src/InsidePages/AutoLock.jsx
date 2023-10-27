@@ -28,6 +28,18 @@ function AutoLock() {
       .catch((error) => {
         console.error("Error sending data to the server:", error);
       });
+
+
+
+
+
+
+
+
+
+
+
+
   };
 
   return (
@@ -42,7 +54,7 @@ function AutoLock() {
 
       <div></div>
 
-      <div>
+      <div >
         <form action="#">
           <select
             name="time"
@@ -50,12 +62,12 @@ function AutoLock() {
             value={selectedTime}
             onChange={handleTimeChange}
           >
-            <option value="30 Second">30 Second</option>
-            <option value="1 Minute">1 Minute</option>
-            <option value="2 Minute">2 Minute</option>
-            <option value="3 Minute">3 Minute</option>
-            <option value="4 Minute">4 Minute</option>
-            <option value="5 Minute">5 Minute</option>
+            <option value="30_Second">30 Second</option>
+            <option value="1_Minute">1 Minute</option>
+            <option value="2_Minute">2 Minute</option>
+            <option value="3_Minute">3 Minute</option>
+            <option value="4_Minute">4 Minute</option>
+            <option value="5_Minute">5 Minute</option>
             <option value="Never">Never</option>
           </select>
         </form>

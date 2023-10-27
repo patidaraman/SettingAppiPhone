@@ -56,21 +56,7 @@ function Bluetooth_1() {
         </div>
       </div>
 
-      {/* 
-  <div id="Blocks" >
-       <div>
-             <span>Bluetooth </span>
-             <span style={{marginTop:"5px",marginRight:""}}>
-                     <label className="switch">
-                     <input type="checkbox" onChange={toggleBluetooth} checked={isBluetoothOn} />
-                     <span className="slider round"></span>
-                     </label>
-              </span>
 
-    </div>
-   
-
-  </div> */}
 
       <div id="Blocks" style={{ height: "40px", marginTop: "25px" }}>
         <div className="Screen_View_Row">

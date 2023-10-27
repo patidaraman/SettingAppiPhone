@@ -52,19 +52,47 @@ function VoicsData() {
 
 
 
-
-
-
-
-
-
-
   const options = ["4G", "3G"];
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionClick = (option) => {
     setSelectedOption(option === selectedOption ? null : option);
+    sendSelectednetworkToServer(option);
   };
+
+  const sendSelectednetworkToServer = (selectedNetwork) => {
+    fetch("http://localhost:8000/networkv/networkv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ selectedNetwork }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Selected selected Network sent to the server:", data);
+        setSelectedOption(selectedNetwork); // Update the local state
+      })
+      .catch((error) => {
+        console.error("Error sending data to the server:", error);
+      });
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
 
   return (
     <div>

@@ -13,14 +13,41 @@ function Ringtone(){
     const navigate=useNavigate()
 
 
-    const options = ["Opening (Default)", "Apex" ,"Beacom" ,"Bulletin" , "By The Seaside" ,
-                      "Chimes", "Circuit","Silk","Slow Rise","Ripples","Sencha","Stargaze" , "Summit" , "Twinkel" , "Uplift" , "Waves" , "Classic"];
+    const options = ["Opening", "Apex" ,"Beacon" ,"Bulletin" , 
+                      "Chimes", "Circuit","Silk", "Constellation","Cosmic","Crystals","Hillside","Illuminate","Playtime","Presto"
+                      ,"Radar","Radiate","Ripples","Sencha","Single","Silk","Stargaze" , "Summit" , "Twinkle" , "Uplift" , "Waves" ];
 
 
-    const [selectedOption, setSelectedOption] = useState(null);
+
+    
+
+
+    const [selectedOption, setSelectedOption] = useState("Ripples");
     const handleOptionClick = (option) => {
       setSelectedOption(option === selectedOption ? null : option);
+      sendSelectedRingtoneToServer(option);
+      
     };
+    const sendSelectedRingtoneToServer = (selectedRingtone) => {
+      fetch("http://localhost:8000/ringtone/ringtone", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedRingtone }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Selected ringtone sent to the server:", data);
+          setSelectedOption(selectedRingtone); // Update the local state
+        })
+        .catch((error) => {
+          console.error("Error sending data to the server:", error);
+        });
+    };
+
+
+
 
 
 
@@ -41,11 +68,11 @@ function Ringtone(){
 
             <br/>
 
-                    <div id="Blocks" style={{height:"35px"}} >
+                    <div id="Blocks" style={{height:"40px"}} >
 
                             <div  className="Screen_View_Row">
 
-                              <div className="Button_Click"  onClick={()=>navigate('/Ringtone')} >Vibration</div>
+                              <div className="Button_Click"  onClick={()=>navigate('/Ringtone')} style={{marginTop:"10px"}} >Vibration</div>
                                <div style={{marginRight:"10px" , marginTop:"5px", color:"gray"}} onClick={()=>navigate('/Ringtone')}> Default</div>
                                <span className="Arrow_Icon" style={{ marginTop:"5px"}}>{">"}</span>
 
@@ -76,24 +103,32 @@ function Ringtone(){
                               </div>
 
    
-                     <div id="blocks" style={{height:"600px",background:"#2a2929f8" , borderRadius:"8px"}}>
+                     <div id="blocks" style={{height:"993px",background:"#2a2929f8" , borderRadius:"8px"}}>
 
                             <div className="option-list">
 
-                                        <ul>
+                                        <ul style={{marginLeft:"40px"}}>
                                                {options.map((option, index) => (
                                             <li
                                                  key={index}
                                                  onClick={() => handleOptionClick(option)}
                                                  className={selectedOption === option ? "selected" : ""}
+                                                 style={{
+                                                  borderBottom: "1px solid gray", // Add a border between options
+                                                  padding: "10px 0",
+                                                  display: "flex",
+                                                  justifyContent: "space-between",
+                                                }}
                                             >
 
                                                  {option}
-                                                  {selectedOption === option && <span className="checkmark">✓</span>}
+                                                  {selectedOption === option && <span className="checkmark" >✓</span>}
                                             </li>
 
                                               ))}
                                         </ul>
+                                        
+
 
                             </div>
                     </div>

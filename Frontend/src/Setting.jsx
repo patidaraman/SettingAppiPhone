@@ -10,8 +10,11 @@ import general from './images/general.png'
 import displayB from './images/displayB.jpg'
 import bluetooth from './images/bluetooth.jpg'
  import { useNavigate } from 'react-router-dom'
-import  { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react'
+
+
 import './App.css'
+import SearchBar from './Component1/searchbar'
 
 
 
@@ -19,9 +22,10 @@ import './App.css'
 function Setting() {
      const navigate = useNavigate()
       // You can add search functionality here
-    const [searchText, setSearchText] = useState('');
-    const handleInputChange = (e) => 
-       setSearchText(e.target.value);
+
+    // const [searchText, setSearchText] = useState('');
+    // const handleInputChange = (e) => 
+    //    setSearchText(e.target.value);
 
 
        //AirplaneMode SliderButton
@@ -83,17 +87,8 @@ function Setting() {
 
              <br/>
 
-             <div id="block_1" >
-                 <div className="search-bar">
-                     <input
-                       type="text"
-                       placeholder=" 🔍 Search"
-                       value={searchText}
-                       onChange={handleInputChange}
-                    />
-                 </div>
-                 <br/>
-             </div> 
+             <SearchBar></SearchBar>
+             <br/>
 
 
 

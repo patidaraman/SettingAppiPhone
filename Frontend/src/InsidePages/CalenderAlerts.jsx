@@ -21,7 +21,27 @@ function CalenderAlerts(){
   
     const handleOptionClick = (option) => {
       setSelectedOption(option === selectedOption ? null : option);
+      sendSelectedcalenderToServer(option);
     };
+
+    const  sendSelectedcalenderToServer = (selectedCalendarAlerts) => {
+      fetch("http://localhost:8000/calendar/calendar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ selectedCalendarAlerts }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Selected  CalendarAlerts sent to the server:", data);
+          setSelectedOption(selectedCalendarAlerts); // Update the local state
+        })
+        .catch((error) => {
+          console.error("Error sending data to the server:", error);
+        });
+    };
+
 
 
 
@@ -70,20 +90,26 @@ function CalenderAlerts(){
 
                           <br/>  
                     <div style={{marginBottom:"-12px"}}>
-                              <span className='paragraph'>RINGTONES</span> 
+                              <span className='paragraph'>ALERTS TONES</span> 
                               </div>
 
    
-                     <div id="blocks" style={{height:"940px",background:"#2a2929f8" , borderRadius:"8px"}}>
+                     <div id="blocks" style={{height:"1075px",background:"#2a2929f8" , borderRadius:"8px"}}>
 
                             <div className="option-list">
 
-                                        <ul>
+                                        <ul style={{marginLeft:"40px"}}>
                                                {options.map((option, index) => (
                                             <li
                                                  key={index}
                                                  onClick={() => handleOptionClick(option)}
                                                  className={selectedOption === option ? "selected" : ""}
+                                                 style={{
+                                                  borderBottom: "1px solid gray", // Add a border between options
+                                                  padding: "10px 0",
+                                                  display: "flex",
+                                                  justifyContent: "space-between",
+                                                }}
                                             >
 
                                                  {option}
