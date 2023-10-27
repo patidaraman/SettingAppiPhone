@@ -11,6 +11,8 @@
         From all the settings you can navigate inside them  
         
 
+        c
+
 #3. Technology Used :
 
     > This is completely MERN Stack project.

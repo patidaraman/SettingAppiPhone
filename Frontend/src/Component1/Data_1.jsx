@@ -10,6 +10,8 @@ function Data_1() {
     sendDataToServer(!isMobileDataOn);
   };
 
+  
+
   const sendDataToServer = async (data) => {
     fetch("http://localhost:8000/mobiledata", {
       method: "POST",
